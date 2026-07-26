@@ -198,7 +198,7 @@
                             <div class="grid grid-cols-12 gap-2">
                                 <div class="col-span-12 md:col-span-4">
                                     <label class="block text-[9px] font-bold text-[#bf953f] mb-1 uppercase">Nama Rider</label>
-                                    <select id="driverstock" onchange="autoFillStock(this.value);" class="w-full bg-[#111] border-gradient-gold-thin text-white rounded-lg px-2 py-2 text-xs outline-none">
+                                    <select id="driverStock" class="w-full bg-[#111] border-gradient-gold-thin text-white rounded-lg px-2 py-2 text-xs outline-none">
                             <option value="" disabled selected>-- Pilih Rider --</option>
                             <option value="ADI" class="font-bold text-[#fcf6ba] uppercase bg-black"> ADI</option>
                             <option value="RICKY" class="font-bold text-[#fcf6ba] uppercase bg-black">RICKY</option>
@@ -241,7 +241,7 @@
                             <div class="grid grid-cols-12 gap-2">
                                 <div class="col-span-12 md:col-span-4">
                                     <label class="block text-[9px] text-[#bf953f] font-bold mb-1 uppercase">Rider</label>
-                                    <select id="driver" onchange="autoFillStock(this.value);" class="w-full bg-[#111] border-gradient-gold-thin text-white rounded-lg px-2 py-2 text-xs outline-none">
+                                    <select id="driver" onchange="muatHutangDriver(); autoFillStock(this.value);" class="w-full bg-[#111] border-gradient-gold-thin text-white rounded-lg px-2 py-2 text-xs outline-none">
                             <option value="" disabled selected>-- Pilih Rider --</option>
                             <option value="ADI" class="font-bold text-[#fcf6ba] uppercase bg-black"> ADI</option>
                             <option value="RICKY" class="font-bold text-[#fcf6ba] uppercase bg-black">RICKY</option>
@@ -328,12 +328,12 @@
                             <div class="grid grid-cols-12 gap-2 mt-3 pt-3 border-t border-[#333]">
                                 <div class="col-span-12 md:col-span-6">
                                     <label class="block text-[9px] text-[#bf953f] font-bold mb-1 uppercase">Nama Customer</label>
-                                    <input type="text" id="namaCustomerInv" list="listNamaCustomer" oninput="cekAutocompleteCustomer(this.value, 'nama')" class="w-full bg-[#111] border-gradient-gold-thin text-white rounded-lg px-2 py-2 text-xs outline-none focus:border-[#fcf6ba]" placeholder="Ketik min. 3 huruf">
+                                    <input type="text" id="namaCustomerInv" list="listNamaCustomer" oninput="(this.value, 'nama')" class="w-full bg-[#111] border-gradient-gold-thin text-white rounded-lg px-2 py-2 text-xs outline-none focus:border-[#fcf6ba]" placeholder="Ketik min. 3 huruf">
                                     <datalist id="listNamaCustomer"></datalist>
                                 </div>
                                 <div class="col-span-12 md:col-span-6">
                                     <label class="block text-[9px] text-[#bf953f] font-bold mb-1 uppercase">Nomor WhatsApp</label>
-                                    <input type="text" id="waCustomerInv" list="listWaCustomer" oninput="cekAutocompleteCustomer(this.value, 'wa')" class="w-full bg-[#111] border-gradient-gold-thin text-white rounded-lg px-2 py-2 text-xs outline-none focus:border-[#fcf6ba]" placeholder="Ketik min. 5 angka">
+                                    <input type="text" id="waCustomerInv" list="listWaCustomer" oninput="(this.value, 'wa')" class="w-full bg-[#111] border-gradient-gold-thin text-white rounded-lg px-2 py-2 text-xs outline-none focus:border-[#fcf6ba]" placeholder="Ketik min. 5 angka">
                                     <datalist id="listWaCustomer"></datalist>
                                 </div>
                             </div>
@@ -451,12 +451,12 @@
 
         <!-- BOTTOM NAVIGATION LOCK -->
         <nav id="bottomNav" class="fixed bottom-0 w-full max-w-5xl mx-auto bg-gradient-to-r from-[#1e1e1e] via-[#332505] to-[#1e1e1e] border-t border-[#bf953f] z-10 flex justify-around items-center px-1 py-2 shadow-[0_-5px_15px_rgba(0,0,0,0.5)] transition-all duration-300">
-            <button type="button" onclick="switchMenu('dashboard')" id="btn-menu-dashboard" class="flex-col items-center gap-1 text-gray-500 hover:text-[#fcf6ba] transition flex flex-1 w-full"><i class='bx bx-pie-chart-alt-2 text-lg drop-shadow'></i></button>
-            <button type="button" onclick="switchMenu('stock')" id="btn-menu-stock" class="flex-col items-center gap-1 text-gray-500 hover:text-[#fcf6ba] transition flex flex-1 w-full"><i class='bx bx-box text-lg drop-shadow'></i></button>
-            <button type="button" onclick="switchMenu('kasir')" id="btn-menu-kasir" class="flex-col items-center gap-1 text-gray-500 hover:text-[#fcf6ba] transition flex flex-1 w-full"><i class='bx bx-receipt text-lg drop-shadow'></i></button>
+            <button type="button" onclick="switchMenu('dashboard')" id="btn-menu-dashboard" class="flex-col items-center gap-1 text-gray-500 hover:text-[#fcf6ba] transition flex flex-1 w-full"><i class='bx bx-pie-chart-alt-2 text-lg drop-shadow'></i></span></button>
+            <button type="button" onclick="switchMenu('stock')" id="btn-menu-stock" class="flex-col items-center gap-1 text-gray-500 hover:text-[#fcf6ba] transition flex flex-1 w-full"><i class='bx bx-box text-lg drop-shadow'></i></span></button>
+            <button type="button" onclick="switchMenu('kasir')" id="btn-menu-kasir" class="flex-col items-center gap-1 text-gray-500 hover:text-[#fcf6ba] transition flex flex-1 w-full"><i class='bx bx-receipt text-lg drop-shadow'></i></span></button>
             <button type="button" onclick="switchMenu('invoice')" id="btn-menu-invoice" class="flex-col items-center gap-1 text-gray-500 hover:text-[#fcf6ba] transition flex flex-1 w-full" style="display: none;"><i class='bx bx-file-blank text-lg drop-shadow'></i></button>
-            <button type="button" onclick="switchMenu('buktistock')" id="btn-menu-buktistock" class="flex-col items-center gap-1 text-gray-500 hover:text-[#fcf6ba] transition flex flex-1 w-full"><i class='bx bx-images text-lg drop-shadow'></i></button>
-            <button type="button" onclick="switchMenu('profil')" id="btn-menu-profil" class="flex-col items-center gap-1 text-gray-500 hover:text-[#fcf6ba] transition flex flex-1 w-full"><i class='bx bx-user-circle text-lg drop-shadow'></i></button>
+            <button type="button" onclick="switchMenu('buktistock')" id="btn-menu-buktistock" class="flex-col items-center gap-1 text-gray-500 hover:text-[#fcf6ba] transition flex flex-1 w-full"><i class='bx bx-images text-lg drop-shadow'></i></span></button>
+            <button type="button" onclick="switchMenu('profil')" id="btn-menu-profil" class="flex-col items-center gap-1 text-gray-500 hover:text-[#fcf6ba] transition flex flex-1 w-full"><i class='bx bx-user-circle text-lg drop-shadow'></i></span></button>
         </nav>
     </div>
     
@@ -683,17 +683,6 @@
                 </div>
             </section>
         </main>
-                
-        <!-- Navigation Sama Persis -->
-        <nav id="bottomNav" class="fixed bottom-0 w-full max-w-5xl mx-auto bg-gradient-to-r from-[#1e1e1e] via-[#332505] to-[#1e1e1e] border-t border-[#bf953f] z-10 flex justify-around items-center px-1 py-2 shadow-[0_-5px_15px_rgba(0,0,0,0.5)] transition-all duration-300">
-            <button type="button" onclick="switchMenu('dashboard')" id="btn-menu-dashboard" class="flex-col items-center gap-1 text-gray-500 hover:text-[#fcf6ba] transition flex flex-1 w-full"><i class='bx bx-pie-chart-alt-2 text-lg drop-shadow'></i></button>
-            <button type="button" onclick="switchMenu('stock')" id="btn-menu-stock" class="flex-col items-center gap-1 text-gray-500 hover:text-[#fcf6ba] transition flex flex-1 w-full"><i class='bx bx-box text-lg drop-shadow'></i></button>
-            <button type="button" onclick="switchMenu('kasir')" id="btn-menu-kasir" class="flex-col items-center gap-1 text-gray-500 hover:text-[#fcf6ba] transition flex flex-1 w-full"><i class='bx bx-receipt text-lg drop-shadow'></i></button>
-            <button type="button" onclick="switchMenu('invoice')" id="btn-menu-invoice" class="flex-col items-center gap-1 text-gray-500 hover:text-[#fcf6ba] transition flex flex-1 w-full"><i class='bx bx-file-blank text-lg drop-shadow'></i></button>
-            <button type="button" onclick="switchMenu('buktistock')" id="btn-menu-buktistock" class="flex-col items-center gap-1 text-gray-500 hover:text-[#fcf6ba] transition flex flex-1 w-full"><i class='bx bx-images text-lg drop-shadow'></i></button>
-            <button type="button" onclick="switchMenu('profil')" id="btn-menu-profil" class="flex-col items-center gap-1 text-gray-500 hover:text-[#fcf6ba] transition flex flex-1 w-full"><i class='bx bx-user-circle text-lg drop-shadow'></i></button>
-        </nav>
-    </div>
 
         <!-- Popup Konfirmasi Simpan INVOICE -->
     <div id="popupSimpanInvoice" class="fixed inset-0 z-[200] flex items-center justify-center bg-black/90 px-4 hidden backdrop-blur-sm">
@@ -719,7 +708,7 @@
     <script>
         const APP_URL = "https://script.google.com/macros/s/AKfycbw1XKhJNl_c5BJN9SFnH9q6X3ildcoyYXMaKThTpwBB6dG-Yljw-iYh3U2SjeyP__cX/exec"; 
         const URL_API = "https://script.google.com/macros/s/AKfycbwRIZNB29ELh93g1qL5rtMxpnKLxBWG4T4cyyB9WiR-H0QJ7jI2w5lESRIH43WMV-vm/exec";
-        
+
         const appAccounts = {
             "zulfikar": { pass: "jkt234", role: "Super Admin", name: "Muhammad Zulfikar", wa: "0812-3456-7890" },
             "sandita": { pass: "san19", role: "Super Admin", name: "Sandita", wa: "0812-9876-5432" },
@@ -737,11 +726,11 @@
         };
 
         const daftarProdukKasir = [ 
-            { nama: "SI AMERICANO", fontEmas: true, harga: 8000, stok: 5 }, { nama: "SI KOPSU AREN", fontEmas: true, harga: 9000, stok: 15 }, 
-            { nama: "SI CREAMY LATTE", fontEmas: true, harga: 12000, stok: 5 }, { nama: "SI VANILLA LATTE", fontEmas: true, harga: 12000, stok: 5 }, 
-            { nama: "SI SALTED CARAMEL", fontEmas: true, harga: 12000, stok: 5 }, { nama: "SI BUTTERSCOTCH", fontEmas: true, harga: 12000, stok: 5 }, 
-            { nama: "SI CHOCOLATE", fontEmas: true, harga: 12000, stok: 5 }, { nama: "SI MATCHA", fontEmas: true, harga: 12000, stok: 5 }, 
-            { nama: "SI TEH MANIS", fontEmas: true, harga: 5000, stok: 5 } 
+            { nama: "SI AMERICANO", harga: 8000, stok: 5 }, { nama: "SI KOPSU AREN", harga: 9000, stok: 15 }, 
+            { nama: "SI CREAMY LATTE", harga: 12000, stok: 5 }, { nama: "SI VANILLA LATTE", harga: 12000, stok: 5 }, 
+            { nama: "SI SALTED CARAMEL", harga: 12000, stok: 5 }, { nama: "SI BUTTERSCOTCH", harga: 12000, stok: 5 }, 
+            { nama: "SI CHOCOLATE", fontEmas: true, harga: 12000, stok: 5 }, { nama: "SI MATCHA", harga: 12000, stok: 5 }, 
+            { nama: "SI TEH MANIS", harga: 5000, stok: 5 } 
         ];
 
         const daftarProdukInvoice = [ 
@@ -757,9 +746,8 @@
             "SI VANILLA LATTE": "SIVL", "SI BUTTERSCOTCH": "SIB", "SI SALTED CARAMEL": "SISC",
             "SI CHOCOLATE": "SIC", "SI MATCHA": "SIM", "SI TEH MANIS": "SITM"
         };
-        
 
-let currentUser = null;
+        let currentUser = null;
         let stockImagesBase64 = [];
         let chartInstRider, chartInstMenu, chartInstMasa, chartInstHarian;
         let currentBundleConfig = {}; 
@@ -844,7 +832,7 @@ let currentUser = null;
          */
         function switchMenu(menuId) {
             document.querySelectorAll('.menu-view').forEach(el => el.classList.add('hidden'));
-            ['dashboard','stock','kasir','invoice','buktistock','profil'].forEach(m => {
+            ['dashboard','stock','kasir','buktistock','profil'].forEach(m => {
                 const btn = document.getElementById(`btn-menu-${m}`);
                 if(btn) { btn.classList.remove('text-[#fcf6ba]'); btn.classList.add('text-gray-500'); }
             });
@@ -1007,6 +995,7 @@ let currentUser = null;
                     document.getElementById('valTargetDekat').innerText = `${totPenjualan} - ${activeTarget} = +${kelebihan} (Tercapai!)`;
                 }
 
+// Hitung Masa Dagang terlebih dahulu agar bisa digunakan untuk kalkulasi bonus
                 let mapAbsen = {};
                 filteredDetail.forEach(x => {
                     if (parseInt(x.stok_awal) > 0 || parseInt(x.total_terjual) > 0) {
@@ -1030,31 +1019,40 @@ let currentUser = null;
                     document.getElementById('valMasaDagang').innerText = `${myHari ? myHari.val : 0}/25 Hari`;
                 }
 
+                // --- KALKULASI KOMISI & BONUS BARU ---
                 let totKomisi = myUtama.reduce((sum, item) => sum + (parseInt(item.komisi)||0), 0);
                 document.getElementById('valKomisi').innerText = formatRupiahGlobal(totKomisi);
 
                 let grandKomisiBonus = totKomisi;
                 
+                // Menghitung total cup penjualan per rider
                 let cupPerRider = {};
                 myUtama.forEach(x => {
                     let dName = x.driver.toUpperCase().trim();
                     cupPerRider[dName] = (cupPerRider[dName] || 0) + (parseInt(x.volume) || 0);
                 });
 
+                // Mendapatkan daftar rider unik yang memiliki data di periode ini
                 let unikRiders = [...new Set(myUtama.map(x => x.driver.toUpperCase().trim()))];
 
                 unikRiders.forEach(drv => {
+                    // Abaikan admin dari perhitungan bonus
                     if (!drv.includes("ADMIN") && !drv.includes("ZULFIKAR") && !drv.includes("SANDITA")) {
                         let hariAbsen = hitungAbsenRider[drv] || 0;
                         let cup = cupPerRider[drv] || 0;
                         let jumlahHariSetoran = myUtama.filter(x => x.driver.toUpperCase().trim() === drv).length;
 
+                        // 1. Bonus 24.000 perhari (kecuali RICKY AKBAR)
                         if (!drv.includes("RICKY AKBAR")) {
                             grandKomisiBonus += (jumlahHariSetoran * 24000);
                         }
+
+                        // 2. Bonus 150.000 jika masa dagang mencapai 25 hari
                         if (hariAbsen >= 25) {
                             grandKomisiBonus += 150000;
                         }
+
+                        // 3. Bonus Target Kategori (1, 2, 3)
                         if (cup >= 1500) {
                             grandKomisiBonus += 675000;
                         } else if (cup >= 1200) {
@@ -1066,6 +1064,14 @@ let currentUser = null;
                 });
 
                 document.getElementById('valKomisiBonus').innerText = formatRupiahGlobal(grandKomisiBonus);
+                // --- END KALKULASI KOMISI & BONUS ---
+
+                if (rider === "ADMIN") {
+                    document.getElementById('valMasaDagang').innerText = "Admin View";
+                } else {
+                    let myHari = sortedAbsen.find(x => x.rName === rider.split(' ')[0]);
+                    document.getElementById('valMasaDagang').innerText = `${myHari ? myHari.val : 0}/25 Hari`;
+                }
 
                 let totWastage = myDetail.reduce((sum, item) => sum + (parseInt(item.wastage)||0), 0);
                 document.getElementById('valWastage').innerText = totWastage + " Cup";
@@ -1102,6 +1108,7 @@ let currentUser = null;
                 document.getElementById('valTargetPct').innerText = barPct + "%";
                 document.getElementById('barTarget').style.width = barPct + "%";
 
+                // Group Detail Setoran untuk Tabel
                 let groupedDetail = {};
                 myDetail.sort((a,b) => new Date(a.tanggal) - new Date(b.tanggal)).forEach(x => {
                     let key = `${x.tanggal} - ${x.driver}`;
@@ -1111,6 +1118,7 @@ let currentUser = null;
 
                 let htmlTabel = "";
                 for (let key in groupedDetail) {
+                    // Pembatas Tabel dengan Tanggal & Nama
                     htmlTabel += `<tr class="bg-[#332505] border-y border-[#bf953f]">
                                     <td colspan="8" class="p-2 text-center text-[#fcf6ba] font-bold text-[9px] uppercase tracking-wider">${key}</td>
                                   </tr>`;
@@ -1121,334 +1129,384 @@ let currentUser = null;
                             <td class="p-2 text-center text-blue-400 border-r border-neutral-800">${x.bonus}</td>
                             <td class="p-2 text-center border-r border-neutral-800">${x.sisa}</td>
                             <td class="p-2 text-center text-emerald-400 border-r border-neutral-800">${x.terjual_tunai}</td>
-                            <td class="p-2 text-center text-green-300 border-r border-neutral-800">${x.terjual_qris}</td>
-                            <td class="p-2 text-center text-red-400 font-bold border-r border-neutral-800">${x.wastage}</td>
-                            <td class="p-2 text-center text-[#ffb74d] font-bold">${x.total_terjual}</td>
+                            <td class="p-2 text-center text-purple-400 border-r border-neutral-800">${x.terjual_qris}</td>
+                            <td class="p-2 text-center text-red-400 border-r border-neutral-800">${x.wastage}</td>
+                            <td class="p-2 text-center font-bold text-[#fcf6ba]">${x.total_terjual}</td>
                         </tr>`;
                     });
                 }
-                document.getElementById('tabelDataSetoran').innerHTML = htmlTabel || `<tr><td colspan="8" class="p-4 text-center text-red-400">Tidak ada data setoran.</td></tr>`;
+                if(Object.keys(groupedDetail).length === 0) htmlTabel = `<tr><td colspan="8" class="text-center p-4 text-[#bf953f] font-bold">Data setoran kosong pada periode ini.</td></tr>`;
+                document.getElementById('tabelDataSetoran').innerHTML = htmlTabel;
 
-                renderCharts(myDetail, sortedAbsen, myUtama, rider);
+                // Chart: Total Cup Per Rider
+                let mapRiderData = {};
+                filteredUtama.forEach(x => { mapRiderData[x.driver] = (mapRiderData[x.driver]||0) + (parseInt(x.volume)||0); });
+                let sortedRidersForChart = Object.keys(mapRiderData).map(k=>({rName: k.split(' ')[0], val: mapRiderData[k]})).sort((a,b)=>b.val - a.val);
 
-                document.getElementById('loadingDashboard').classList.add('hidden');
+                if(chartInstRider) chartInstRider.destroy();
+                chartInstRider = new Chart(document.getElementById('chartRider').getContext('2d'), {
+                    type: 'bar', data: { labels: sortedRidersForChart.map(x=>x.rName), datasets: [{ label: 'Total Cup', data: sortedRidersForChart.map(x=>x.val), backgroundColor: '#bf953f', borderRadius: 4 }] },
+                    options: { responsive: true, maintainAspectRatio: false, plugins: { datalabels: { color: '#fff', anchor: 'end', align: 'top', font: {weight: 'bold', size: 8} }, legend: {display: false} }, scales: { y: { beginAtZero: true, grid: { color: '#333' } }, x: { grid: { display: false } } } }
+                });
+
+                // Chart: Produk Terlaris
+                let mapProduk = {};
+                myDetail.forEach(x => { 
+                    if (!x.produk.toUpperCase().includes("BUNDLING")) {
+                        let keyName = x.produk.toUpperCase().trim();
+                        let shortName = namaSingkatProduk[keyName] || x.produk.replace("SI ", "");
+                        mapProduk[shortName] = (mapProduk[shortName]||0) + (parseInt(x.total_terjual)||0); 
+                    }
+                });
+                let sortedProduk = Object.keys(mapProduk).map(p=>({pName:p, val:mapProduk[p]})).sort((a,b)=>b.val - a.val);
+
+                if(chartInstMenu) chartInstMenu.destroy();
+                chartInstMenu = new Chart(document.getElementById('chartMenu').getContext('2d'), {
+                    type: 'doughnut', data: { labels: sortedProduk.map(x=>x.pName), datasets: [{ label: 'Total Terjual', data: sortedProduk.map(x=>x.val), backgroundColor: ['#bf953f','#f57c00','#d4af37','#fcf6ba','#1e1e1e','#444','#666','#888','#aaa'], borderRadius: 4 }] },
+                    options: { responsive: true, maintainAspectRatio: false, plugins: { datalabels: { color: '#fff', font: {weight: 'bold', size: 9}, formatter: (value, ctx) => value > 0 ? value : '' }, legend: { position: 'right', labels: {boxWidth: 8, font: {size: 8}} } }, cutout: '60%' }
+                });
+
+                // Chart: Masa Dagang (Hari) Per Rider
+                if(chartInstMasa) chartInstMasa.destroy();
+                chartInstMasa = new Chart(document.getElementById('chartMasa').getContext('2d'), {
+                    type: 'bar',
+                    data: { 
+                        labels: sortedAbsen.map(x=>x.rName), 
+                        datasets: [{ 
+                            label: 'Hari Dagang', 
+                            data: sortedAbsen.map(x=>x.val), 
+                            backgroundColor: '#bf953f', 
+                            borderRadius: 4 
+                        }] 
+                    },
+                    options: { 
+                        responsive: true, 
+                        maintainAspectRatio: false, 
+                        plugins: { 
+                            legend: {display: false}, 
+                            datalabels: { display: true, color: '#fff', anchor: 'end', align: 'right', font: {weight: 'bold', size: 9} }, legend: {display: false} }, scales: { x: { beginAtZero: true, max: 31, grid: { color: '#333' } }, y: { grid: { display: false } } } }
+            });
+
+
+                // Chart: Grafik Penjualan Harian
+                let mapHarian = {};
+                myUtama.forEach(x => {
+                    mapHarian[x.tanggal] = (mapHarian[x.tanggal] || 0) + (parseInt(x.volume) || 0);
+                });
+                let sortedHarian = Object.keys(mapHarian)
+                    .sort((a,b) => new Date(a) - new Date(b))
+                    .map(t => ({ tgl: t.substring(5), val: mapHarian[t] })); // Munculin DD-mm-YY
+
+                if(chartInstHarian) chartInstHarian.destroy();
+                chartInstHarian = new Chart(document.getElementById('chartHarian').getContext('2d'), {
+                    type: 'line',
+                    data: { 
+                        labels: sortedHarian.map(x=>x.tgl), 
+                        datasets: [{ 
+                            label: 'Total Penjualan (Cup)', 
+                            data: sortedHarian.map(x=>x.val), 
+                            borderColor: '#fcf6ba', 
+                            backgroundColor: 'rgba(252,246,186,0.2)', 
+                            fill: true, 
+                            tension: 0.3 
+                        }] 
+                    },
+                    options: { 
+                        responsive: true, 
+                        maintainAspectRatio: false, 
+                        plugins: { 
+                            legend: {display: false}, 
+                            datalabels: { display: true, color: '#ffffff', font: {weight: 'bold'}, align: 'top' } 
+                        },
+                        scales: { y: { beginAtZero: true, grid: { color: '#333' } }, x: { grid: { display: false } } } }
+                });
+
                 document.getElementById('dashboardContent').classList.remove('hidden');
-
-            } catch(e) {
-                console.error(e);
-                alert("Gagal menarik data dashboard. Pastikan koneksi internet stabil.");
-                document.getElementById('loadingDashboard').classList.add('hidden');
-            }
+            } catch(e) { console.error(e); }
+            document.getElementById('loadingDashboard').classList.add('hidden');
         }
 
-        function renderCharts(myDetail, sortedAbsen, myUtama, riderMode) {
-            let chRider = document.getElementById('chartRider').getContext('2d');
-            let chMenu = document.getElementById('chartMenu').getContext('2d');
-            let chMasa = document.getElementById('chartMasa').getContext('2d');
-            let chHarian = document.getElementById('chartHarian').getContext('2d');
-
-            if(chartInstRider) chartInstRider.destroy();
-            if(chartInstMenu) chartInstMenu.destroy();
-            if(chartInstMasa) chartInstMasa.destroy();
-            if(chartInstHarian) chartInstHarian.destroy();
-
-            Chart.defaults.color = '#fff';
-            Chart.defaults.font.size = 9;
-            Chart.register(ChartDataLabels);
-
-            let mapRider = {}; myUtama.forEach(x => { mapRider[x.driver] = (mapRider[x.driver]||0) + (parseInt(x.volume)||0); });
-            chartInstRider = new Chart(chRider, {
-                type: 'bar',
-                data: { labels: Object.keys(mapRider), datasets: [{ label: 'Total Cup', data: Object.values(mapRider), backgroundColor: '#bf953f' }] },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { datalabels: { color: '#fff', anchor: 'end', align: 'top', font: {weight: 'bold', size: 8} }, legend: {display: false} }, scales: { y: { beginAtZero: true, grid: { color: '#333' } }, x: { grid: { display: false } } } }
-            });
-
-            let mapMenu = {}; myDetail.forEach(x => { mapMenu[x.produk.replace("SI ","")] = (mapMenu[x.produk.replace("SI ","")]||0) + (parseInt(x.total_terjual)||0); });
-            let mSort = Object.keys(mapMenu).map(k => ({k, v:mapMenu[k]})).sort((a,b)=>b.v - a.v);
-            chartInstMenu = new Chart(chMenu, {
-                type: 'doughnut',
-                data: { labels: mSort.map(x=>x.k), datasets: [{ data: mSort.map(x=>x.v), backgroundColor: ['#bf953f','#f57c00','#d4af37','#fcf6ba','#1e1e1e','#444','#666','#888','#aaa'] }] },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { datalabels: { color: '#fff', font: {weight: 'bold', size: 9}, formatter: (value, ctx) => value > 0 ? value : '' }, legend: { position: 'right', labels: {boxWidth: 8, font: {size: 8}} } }, cutout: '60%' }
-            });
-
-            chartInstMasa = new Chart(chMasa, {
-                type: 'bar',
-                data: { labels: sortedAbsen.map(x=>x.rName), datasets: [{ label: 'Hari Dagang', data: sortedAbsen.map(x=>x.val), backgroundColor: '#f57c00' }] },
-                options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { datalabels: { color: '#fff', anchor: 'end', align: 'right', font: {weight: 'bold', size: 9} }, legend: {display: false} }, scales: { x: { beginAtZero: true, max: 31, grid: { color: '#333' } }, y: { grid: { display: false } } } }
-            });
-
-            let mapHari = {}; 
-            myUtama.forEach(x => { mapHari[x.tanggal] = (mapHari[x.tanggal]||0) + (parseInt(x.volume)||0); });
-            let hSort = Object.keys(mapHari).sort((a,b) => new Date(a) - new Date(b));
-            chartInstHarian = new Chart(chHarian, {
-                type: 'line',
-                data: { labels: hSort.map(x => x.split('-')[2]+'/'+x.split('-')[1]), datasets: [{ label: 'Cup Terjual', data: hSort.map(k=>mapHari[k]), borderColor: '#fcf6ba', backgroundColor: 'rgba(252,246,186,0.2)', borderWidth: 2, fill: true, tension: 0.4 }] },
-                options: { responsive: true, maintainAspectRatio: false, plugins: { datalabels: { display: false }, legend: {display: false} }, scales: { y: { beginAtZero: true, grid: { color: '#333' } }, x: { grid: { display: false } } } }
-            });
+        function renderTabelAkun() {
+            let html = "";
+            for (let k in appAccounts) { html += `<tr class="border-b border-[#333]"><td class="p-3 text-white font-bold">${k}</td><td class="p-3 text-gray-400">${appAccounts[k].name}</td><td class="p-3 text-orange-400 font-bold">${appAccounts[k].role}</td></tr>`; }
+            document.getElementById('tbodyAkunGlobal').innerHTML = html;
         }
 
-        // --- ORIGINAL TAB KASIR & LAINNYA LOGIC ---
-        function renderTabelVarianKasir() {
-            const tbody = document.getElementById("productRowsKasir"); 
-            if(!tbody) return;
-            tbody.innerHTML = "";
+        function renderTabelStock() {
+            const tbody = document.getElementById("productRowsStock"); tbody.innerHTML = "";
             daftarProdukKasir.forEach((p, i) => {
-                let isBndl = p.harga === 12000;
-                let namaTampil = p.nama; if (p.fontEmas) namaTampil = `<span class="text-[#bf953f] font-black">${p.nama}</span>`;
+                const maxD = p.nama === "SI KOPSU AREN" ? 50 : 30;
                 tbody.innerHTML += `<tr class="border-b border-[#333]">
-                    <td class="py-2 px-1 text-white text-[9px] font-bold">${namaTampil}</td>
-                    <td class="py-2 text-center"><select id="kS-${i}" onchange="hitungOtomatisKasir()" class="w-10 bg-[#111] border border-gray-600 text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(100, 0)}</select></td>
-                    <td class="py-2 text-center"><select id="kB-${i}" onchange="hitungOtomatisKasir()" class="w-10 bg-[#111] border border-gray-600 text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(100, 0)}</select></td>
-                    <td class="py-2 text-center"><select id="kSi-${i}" onchange="hitungOtomatisKasir()" class="w-10 bg-[#111] border border-gray-600 text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(100, 0)}</select></td>
-                    <td class="py-2 text-center relative"><select id="kT-${i}" onchange="${isBndl ? `cekPromoKasir(${i}, this, 'tunai')` : 'hitungOtomatisKasir()'}" class="w-10 bg-[#111] border border-gray-600 text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(100, 0)}</select>${isBndl ? `<div id="bdlT-${i}" class="text-[8px] text-blue-400 absolute w-full text-center bottom-0 hidden">Bndl</div>` : ''}</td>
-                    <td class="py-2 text-center relative"><select id="kQ-${i}" onchange="${isBndl ? `cekPromoKasir(${i}, this, 'qris')` : 'hitungOtomatisKasir()'}" class="w-10 bg-[#111] border border-gray-600 text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(100, 0)}</select>${isBndl ? `<div id="bdlQ-${i}" class="text-[8px] text-blue-400 absolute w-full text-center bottom-0 hidden">Bndl</div>` : ''}</td>
-                    <td class="py-2 text-center"><select id="kW-${i}" onchange="hitungOtomatisKasir()" class="w-10 bg-[#111] border border-red-800 text-red-400 rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(50, 0)}</select></td>
+                    <td class="py-2 px-1 text-white text-[9px] font-bold">${p.nama}</td>
+                    <td class="py-2 text-center"><select id="sAwal-${i}" onchange="hitTotStock()" class="w-10 bg-[#111] border border-[#bf953f] text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(maxD, p.stok)}</select></td>
+                    <td class="py-2 text-center"><select id="bAwal-${i}" onchange="hitTotStock()" class="w-10 bg-[#111] border border-[#bf953f] text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(5, 0)}</select></td>
+                    <td class="py-2 text-center text-[#ffb74d] font-black text-[10px]" id="tAwal-${i}">${p.stok}</td>
+                </tr>`;
+            }); hitTotStock();
+        }
+
+        function hitTotStock() {
+            let grand = 0;
+            daftarProdukKasir.forEach((p,i) => {
+                let s = parseInt(document.getElementById(`sAwal-${i}`).value)||0; let b = parseInt(document.getElementById(`bAwal-${i}`).value)||0;
+                document.getElementById(`tAwal-${i}`).innerText = s+b; grand += (s+b);
+            });
+            document.getElementById("totalCupDibawa").innerText = grand + " Cup";
+        }
+
+        function renderTabelVarianKasir() {
+            const tbody = document.getElementById("productRowsKasir"); tbody.innerHTML = "";
+            daftarProdukKasir.forEach((p, i) => {
+                const maxD = p.nama === "SI KOPSU AREN" ? 50 : 30;
+                tbody.innerHTML += `<tr class="border-b border-[#333]">
+                    <td class="py-2 px-1 text-white text-[9px] font-bold">${p.nama}</td>
+                    <td class="py-2 text-center"><select id="kS-${i}" onchange="hitungOtomatisKasir()" class="w-10 bg-[#111] border border-[#bf953f] text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(maxD, p.stok)}</select></td>
+                    <td class="py-2 text-center"><select id="kB-${i}" onchange="hitungOtomatisKasir()" class="w-10 bg-[#111] border border-[#bf953f] text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(5, 0)}</select></td>
+                    <td class="py-2 text-center"><select id="kSi-${i}" onchange="hitungOtomatisKasir()" class="w-10 bg-[#111] border border-[#bf953f] text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(maxD, 0)}</select></td>
+                    <td class="py-2 text-center"><select id="kT-${i}" onchange="hitungOtomatisKasir()" class="w-10 bg-[#111] border border-[#bf953f] text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(maxD, 0)}</select></td>
+                    <td class="py-2 text-center"><select id="kQ-${i}" onchange="hitungOtomatisKasir()" class="w-10 bg-[#111] border border-[#bf953f] text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(maxD, 0)}</select></td>
+                    <td class="py-2 text-center"><select id="kW-${i}" onchange="hitungOtomatisKasir()" class="w-10 bg-[#111] border border-red-500/50 text-red-300 rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(maxD, 0)}</select></td>
                     <td class="py-2 text-center text-[#ffb74d] font-black text-[10px]" id="kTot-${i}">0</td>
                 </tr>`;
             });
+
+            // MENU BUNDLING BARU
+            tbody.innerHTML += `<tr class="border-b border-[#444] bg-[#221c11]">
+                <td class="py-2 px-1 text-orange-400 text-[9px] font-bold">🎁 BUNDLING 1 (Pilih 4)</td>
+                <td class="py-2 text-center text-gray-500 text-[9px]" colspan="3">Diskon Rp 45.000</td>
+                <td class="py-2 text-center"><select id="bundle1-T" onchange="triggerBundlePopup(1, 'T')" class="w-10 bg-[#111] border border-orange-500 text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(10, 0)}</select></td>
+                <td class="py-2 text-center"><select id="bundle1-Q" onchange="triggerBundlePopup(1, 'Q')" class="w-10 bg-[#111] border border-orange-500 text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(10, 0)}</select></td>
+                <td class="py-2 text-center text-gray-500">-</td>
+                <td class="py-2 text-center text-[#ffb74d] font-black text-[10px]" id="bundle1-Tot">0</td>
+            </tr>`;
+            
+            tbody.innerHTML += `<tr class="border-b border-[#444] bg-[#221c11]">
+                <td class="py-2 px-1 text-orange-400 text-[9px] font-bold">🎁 BUNDLING 2 (Pilih 10)</td>
+                <td class="py-2 text-center text-gray-500 text-[9px]" colspan="3">Diskon Rp 110.000</td>
+                <td class="py-2 text-center"><select id="bundle2-T" onchange="triggerBundlePopup(2, 'T')" class="w-10 bg-[#111] border border-orange-500 text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(10, 0)}</select></td>
+                <td class="py-2 text-center"><select id="bundle2-Q" onchange="triggerBundlePopup(2, 'Q')" class="w-10 bg-[#111] border border-orange-500 text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(10, 0)}</select></td>
+                <td class="py-2 text-center text-gray-500">-</td>
+                <td class="py-2 text-center text-[#ffb74d] font-black text-[10px]" id="bundle2-Tot">0</td>
+            </tr>`;
         }
 
-        async function muatHutangDriver(drv) {
-            if(!drv) return;
-            try {
-                let res = await fetch(`${APP_URL}?action=getHutang&driver=${encodeURIComponent(drv)}`);
-                let data = await res.json();
-                document.getElementById("displayHutangKasir").value = formatRupiahGlobal(data.nominal || 0);
-                hitungOtomatisKasir();
-            } catch(e) { console.error("Gagal get hutang", e); }
-        }
-
-        async function autoFillStock(drv) {
-            if(!drv) return;
+        function triggerBundlePopup(type, mode) {
+            const val = parseInt(document.getElementById(`bundle${type}-${mode}`).value) || 0;
+            if (val === 0) { hitungOtomatisKasir(); return; }
             
-            // Mengambil dari Stock Awal Terakhir di LocalStorage berdasarkan nama rider
-            let lastStock = localStorage.getItem('lastStock_' + drv);
+            const required = type === 1 ? 4 * val : 10 * val;
+            currentBundleConfig = { type: type, mode: mode, requiredCount: required, val: val };
             
-            if(lastStock) {
-                let data = JSON.parse(lastStock);
-                data.forEach((x, i) => {
-                    let elS = document.getElementById(`kS-${i}`);
-                    if(elS) elS.value = x.s;
-                    let elB = document.getElementById(`kB-${i}`);
-                    if(elB) elB.value = x.b;
-                });
-            } else {
-                // Default fallback jika rider belum pernah input stock (5 kecuali 15)
-                daftarProdukKasir.forEach((p, i) => {
-                    let elS = document.getElementById(`kS-${i}`);
-                    if(elS) elS.value = p.stok !== undefined ? p.stok : 5;
-                    let elB = document.getElementById(`kB-${i}`);
-                    if(elB) elB.value = 0;
-                });
-            }
-            hitungOtomatisKasir();
+            document.getElementById("popupBundleTitle").innerText = `BUNDLING ${type} (${mode === 'T' ? 'TUNAI' : 'QRIS'})`;
+            document.getElementById("popupBundleInstruction").innerText = `Pilih total ${required} cup varian menu Rp 12.000`;
+            document.getElementById("popupBundleCount").innerText = `0 / ${required}`;
             
-            // Fetch hutang dari database
-            muatHutangDriver(drv);
-        }
-
-        let tempBundleSelection = {};
-        function showBundlePopup(needed) {
-            tempBundleSelection = {}; 
-            document.getElementById("popupBundleCount").innerText = `0 / ${needed}`;
-            let html = "";
+            const container = document.getElementById("popupBundleItems"); container.innerHTML = "";
+            
             daftarProdukKasir.forEach((p, i) => {
-                if(p.harga === 12000) {
-                    html += `<div class="flex justify-between items-center bg-[#111] p-2 rounded border border-[#333]">
-                                <span class="text-xs text-white">${p.nama}</span>
-                                <div class="flex items-center gap-2">
-                                    <button class="bg-[#333] px-2 rounded font-bold" onclick="ubahBundle(${i}, -1)">-</button>
-                                    <span id="bndCount-${i}" class="text-sm font-bold text-[#fcf6ba] w-4 text-center">0</span>
-                                    <button class="bg-[#bf953f] px-2 rounded font-bold text-black" onclick="ubahBundle(${i}, 1)">+</button>
-                                </div>
-                             </div>`;
+                if (p.harga === 12000) {
+                    container.innerHTML += `<div class="flex justify-between items-center bg-[#111] p-2 rounded border border-neutral-800 mb-1">
+                        <span class="text-xs font-bold text-white">${p.nama}</span>
+                        <div class="flex items-center gap-2">
+                            <button type="button" onclick="adjustBundleItem(${i}, -1)" class="w-6 h-6 bg-neutral-800 text-white rounded flex items-center justify-center font-bold text-sm">-</button>
+                            <span id="popupBundleItemQty-${i}" class="text-xs font-black w-6 text-center text-[#fcf6ba]">0</span>
+                            <button type="button" onclick="adjustBundleItem(${i}, 1)" class="w-6 h-6 bg-neutral-800 text-white rounded flex items-center justify-center font-bold text-sm">+</button>
+                        </div>
+                    </div>`;
                 }
             });
-            document.getElementById("popupBundleItems").innerHTML = html;
-            document.getElementById("btnKonfirmasiBundle").disabled = true;
-            document.getElementById("btnKonfirmasiBundle").classList.add("opacity-50", "cursor-not-allowed");
+            const btn = document.getElementById("btnKonfirmasiBundle");
+            btn.disabled = true; btn.classList.add("opacity-50", "cursor-not-allowed");
             document.getElementById("popupBundle").classList.replace("hidden", "flex");
         }
 
-        function ubahBundle(idx, dir) {
-            let cur = tempBundleSelection[idx] || 0;
-            let tot = Object.values(tempBundleSelection).reduce((a,b)=>a+b, 0);
-            if (dir === 1 && tot < currentBundleConfig.needed) tempBundleSelection[idx] = cur + 1;
-            else if (dir === -1 && cur > 0) tempBundleSelection[idx] = cur - 1;
-            document.getElementById(`bndCount-${idx}`).innerText = tempBundleSelection[idx] || 0;
+        function adjustBundleItem(index, change) {
+            const qtyEl = document.getElementById(`popupBundleItemQty-${index}`);
+            let currentQty = parseInt(qtyEl.innerText) || 0;
+            let newQty = Math.max(0, currentQty + change);
             
-            tot = Object.values(tempBundleSelection).reduce((a,b)=>a+b, 0);
-            document.getElementById("popupBundleCount").innerText = `${tot} / ${currentBundleConfig.needed}`;
+            let currentTotal = 0;
+            daftarProdukKasir.forEach((p, i) => {
+                const el = document.getElementById(`popupBundleItemQty-${i}`);
+                if (el) currentTotal += parseInt(el.innerText) || 0;
+            });
             
-            let btn = document.getElementById("btnKonfirmasiBundle");
-            if (tot === currentBundleConfig.needed) { btn.disabled = false; btn.classList.remove("opacity-50", "cursor-not-allowed"); } 
-            else { btn.disabled = true; btn.classList.add("opacity-50", "cursor-not-allowed"); }
+            if (change > 0 && currentTotal >= currentBundleConfig.requiredCount) return;
+            qtyEl.innerText = newQty;
+            
+            let finalTotal = 0;
+            daftarProdukKasir.forEach((p, i) => {
+                const el = document.getElementById(`popupBundleItemQty-${i}`);
+                if (el) finalTotal += parseInt(el.innerText) || 0;
+            });
+            
+            document.getElementById("popupBundleCount").innerText = `${finalTotal} / ${currentBundleConfig.requiredCount}`;
+            const btn = document.getElementById("btnKonfirmasiBundle");
+            if (finalTotal === currentBundleConfig.requiredCount) {
+                btn.disabled = false; btn.classList.remove("opacity-50", "cursor-not-allowed");
+            } else {
+                btn.disabled = true; btn.classList.add("opacity-50", "cursor-not-allowed");
+            }
         }
 
         function batalBundlePopup() {
-            currentBundleConfig.el.value = 0;
+            document.getElementById(`bundle${currentBundleConfig.type}-${currentBundleConfig.mode}`).value = 0;
             document.getElementById("popupBundle").classList.replace("flex", "hidden");
             hitungOtomatisKasir();
         }
 
         function konfirmasiBundlePopup() {
-            let str = [];
-            daftarProdukKasir.forEach((p, i) => { if(tempBundleSelection[i]) str.push(`${tempBundleSelection[i]}${namaSingkatProduk[p.nama]}`); });
-            let badge = document.getElementById(`bdl${currentBundleConfig.tipe === 'tunai' ? 'T' : 'Q'}-${currentBundleConfig.idx}`);
-            badge.innerText = str.join(','); badge.classList.remove('hidden');
-            
-            currentBundleConfig.el.setAttribute("data-bundle", JSON.stringify(tempBundleSelection));
+            daftarProdukKasir.forEach((p, i) => {
+                const el = document.getElementById(`popupBundleItemQty-${i}`);
+                if (el) {
+                    const qtyToAdd = parseInt(el.innerText) || 0;
+                    if (qtyToAdd > 0) {
+                        const selectId = currentBundleConfig.mode === 'T' ? `kT-${i}` : `kQ-${i}`;
+                        const selectEl = document.getElementById(selectId);
+                        let currentVal = parseInt(selectEl.value) || 0;
+                        selectEl.value = Math.min(selectEl.options.length - 1, currentVal + qtyToAdd);
+                    }
+                }
+            });
             document.getElementById("popupBundle").classList.replace("flex", "hidden");
             hitungOtomatisKasir();
         }
 
+        async function muatHutangDriver() {
+            const d = document.getElementById("driver").value; if(!d) return;
+            document.getElementById("displayHutangKasir").value = "Loading...";
+            try { 
+                const res = await fetch(`${APP_URL}?action=getHutang&driver=${encodeURIComponent(d)}`);
+                const val = parseInt(await res.text()) || 0;
+                document.getElementById("displayHutangKasir").value = formatRupiahGlobal(val);
+                hitungOtomatisKasir();
+            } catch(e) { document.getElementById("displayHutangKasir").value = "Rp 0"; }
+        }
+
+        async function autoFillStock(drv) {
+            if (!drv) return;
+            try {
+                const res = await fetch(`${APP_URL}?action=getStock&driver=${encodeURIComponent(drv)}`);
+                const data = await res.json();
+                if (data && data.length > 0) {
+                    data.forEach(item => {
+                        const idx = daftarProdukKasir.findIndex(p => p.nama.toUpperCase() === item.produk.toUpperCase());
+                        if (idx !== -1) {
+                            document.getElementById(`kS-${idx}`).value = item.stok_awal;
+                            document.getElementById(`kB-${idx}`).value = item.bonus;
+                        }
+                    });
+                    hitungOtomatisKasir();
+                }
+            } catch (err) { console.error(err); }
+        }
+
         function hitungOtomatisKasir() {
-            let totTunai = 0, totQris = 0, totWastage = 0, totCup = 0;
-            let qtyBundleTunai = 0, qtyBundleQris = 0, totHargaBundleTunai = 0, totHargaBundleQris = 0;
-
+            let totCup = 0, komisi = 0, tunai = 0, qris = 0, minusRp = 0, totalWastage = 0;
+            
             daftarProdukKasir.forEach((p, i) => {
-                const stok = parseInt(document.getElementById(`kS-${i}`).value)||0;
-                const sisa = parseInt(document.getElementById(`kSi-${i}`).value)||0;
-                const wstg = parseInt(document.getElementById(`kW-${i}`).value)||0;
-                const bns = parseInt(document.getElementById(`kB-${i}`).value)||0;
-                const terjual = stok - sisa;
-                document.getElementById(`kTot-${i}`).innerText = terjual;
+                const s = parseInt(document.getElementById(`kS-${i}`).value)||0; 
+                const b = parseInt(document.getElementById(`kB-${i}`).value)||0;
+                const si = parseInt(document.getElementById(`kSi-${i}`).value)||0; 
+                const t = parseInt(document.getElementById(`kT-${i}`).value)||0;
+                const q = parseInt(document.getElementById(`kQ-${i}`).value)||0; 
+                const w = parseInt(document.getElementById(`kW-${i}`).value)||0;
                 
-                const tn = parseInt(document.getElementById(`kT-${i}`).value)||0;
-                const qr = parseInt(document.getElementById(`kQ-${i}`).value)||0;
+                const evalTot = si + t + q + w - s; 
+                const terjual = t + q;
                 
-                totWastage += wstg; totCup += terjual;
-
-                if (p.harga === 12000) {
-                    let btnlTn = JSON.parse(document.getElementById(`kT-${i}`).getAttribute("data-bundle") || "{}");
-                    let btnlQr = JSON.parse(document.getElementById(`kQ-${i}`).getAttribute("data-bundle") || "{}");
-                    
-                    let countBdlTn = Object.values(btnlTn).reduce((a,b)=>a+b,0);
-                    let countBdlQr = Object.values(btnlQr).reduce((a,b)=>a+b,0);
-                    
-                    if (countBdlTn === tn && tn > 0) { qtyBundleTunai += tn; totHargaBundleTunai += (tn * 35000); } 
-                    else { totTunai += tn * p.harga; }
-                    
-                    if (countBdlQr === qr && qr > 0) { qtyBundleQris += qr; totHargaBundleQris += (qr * 35000); } 
-                    else { totQris += qr * p.harga; }
-                } else {
-                    totTunai += tn * p.harga; totQris += qr * p.harga;
-                }
+                if (evalTot < 0) minusRp += Math.abs(evalTot) * p.harga; 
+                document.getElementById(`kTot-${i}`).innerText = evalTot;
+                
+                tunai += t * p.harga; 
+                qris += q * p.harga; 
+                totCup += terjual;
+                totalWastage += w;
+                komisi += terjual * (p.nama === "SI TEH MANIS" ? 1000 : 2000);
             });
+            
+            const b1T = parseInt(document.getElementById("bundle1-T")?.value) || 0;
+            const b1Q = parseInt(document.getElementById("bundle1-Q")?.value) || 0;
+            const b2T = parseInt(document.getElementById("bundle2-T")?.value) || 0;
+            const b2Q = parseInt(document.getElementById("bundle2-Q")?.value) || 0;
+            
+            if(document.getElementById("bundle1-Tot")) document.getElementById("bundle1-Tot").innerText = b1T + b1Q;
+            if(document.getElementById("bundle2-Tot")) document.getElementById("bundle2-Tot").innerText = b2T + b2Q;
+            
+            tunai -= (b1T * 3000) + (b2T * 10000);
+            qris -= (b1Q * 3000) + (b2Q * 10000);
+            
+            const hAwal = ekstrakAngkaGlobal(document.getElementById("displayHutangKasir").value);
+            const bayar = parseInt(document.getElementById("bayarHutangKasir").value)||0;
+            const pengeluaran = parseInt(document.getElementById("pengeluaranKasir").value)||0;
+            
+            const sHutang = hAwal - bayar + minusRp; 
+            
+            window.globalSetoranBersih = tunai - komisi - pengeluaran + bayar;
+            const totalOmzet = tunai + qris - komisi - pengeluaran + bayar;
 
-            totTunai += totHargaBundleTunai; totQris += totHargaBundleQris;
-            let pengeluaran = parseInt(document.getElementById("pengeluaranKasir").value)||0;
-            totTunai -= pengeluaran;
-
-            document.getElementById("totalTunaiKasir").value = formatRupiahGlobal(totTunai);
-            document.getElementById("totalQrisKasir").value = formatRupiahGlobal(totQris);
-            document.getElementById("totalWastageText").innerText = totWastage + " Cup";
+            document.getElementById("totalTunaiKasir").value = formatRupiahGlobal(tunai);
+            document.getElementById("totalQrisKasir").value = formatRupiahGlobal(qris);
+            document.getElementById("minusTotalText").innerText = formatRupiahGlobal(minusRp);
+            document.getElementById("totalKomisiText").innerText = formatRupiahGlobal(komisi);
+            document.getElementById("sisaHutangText").innerText = formatRupiahGlobal(sHutang);
             document.getElementById("totalCupText").innerText = totCup + " Cup";
-
-            let komisiPerCup = 500;
-            let bonusHarian = 24000;
-            let riderSelect = document.getElementById("driver").value || "";
-            let drvName = riderSelect.toUpperCase().trim();
+            document.getElementById("totalWastageText").innerText = totalWastage + " Cup";
+            document.getElementById("totalOmzetText").innerText = formatRupiahGlobal(totalOmzet);
+            document.getElementById("setorBersihText").innerText = formatRupiahGlobal(window.globalSetoranBersih);
             
-            if (drvName.includes("PUTRA") || drvName.includes("ABAY") || drvName.includes("RIJAL") || drvName.includes("JUNAEDI") || drvName.includes("ADI")) {
-                komisiPerCup = 1000;
-            }
-            let isRicky = drvName.includes("RICKY AKBAR");
-
-            let hitungKomisi = (totCup * komisiPerCup) + (isRicky ? 0 : bonusHarian);
-            if(totCup === 0) hitungKomisi = 0; 
-
-            document.getElementById("totalKomisiText").innerText = formatRupiahGlobal(hitungKomisi);
-
-            let hutangAwal = ekstrakAngkaGlobal(document.getElementById("displayHutangKasir").value);
-            let totalSeharusnya = 0;
-            
-            let qtyNonBundleTunai = 0, qtyNonBundleQris = 0;
-            daftarProdukKasir.forEach((p, i) => {
-                if (p.harga !== 12000) {
-                    qtyNonBundleTunai += (parseInt(document.getElementById(`kT-${i}`).value)||0);
-                    qtyNonBundleQris += (parseInt(document.getElementById(`kQ-${i}`).value)||0);
-                } else {
-                    let tn = parseInt(document.getElementById(`kT-${i}`).value)||0;
-                    let qr = parseInt(document.getElementById(`kQ-${i}`).value)||0;
-                    let btnlTn = JSON.parse(document.getElementById(`kT-${i}`).getAttribute("data-bundle") || "{}");
-                    let btnlQr = JSON.parse(document.getElementById(`kQ-${i}`).getAttribute("data-bundle") || "{}");
-                    let cT = Object.values(btnlTn).reduce((a,b)=>a+b,0);
-                    let cQ = Object.values(btnlQr).reduce((a,b)=>a+b,0);
-                    if(cT !== tn) qtyNonBundleTunai += tn;
-                    if(cQ !== qr) qtyNonBundleQris += qr;
-                }
-            });
-            
-            totalSeharusnya = totTunai + totQris;
-
-            let omzet = totalSeharusnya + pengeluaran;
-            document.getElementById("totalOmzetText").innerText = formatRupiahGlobal(omzet);
-
-            let bayarHutang = parseInt(document.getElementById("bayarHutangKasir").value)||0;
-
-            let sisaHutangBaru = hutangAwal - bayarHutang;
-            let statusMinus = "";
-            let valMinus = 0;
-
-            let beda = totCup - (qtyBundleTunai + qtyBundleQris + qtyNonBundleTunai + qtyNonBundleQris + totWastage);
-            if (beda > 0) {
-                let rataRataHarga = 10000;
-                valMinus = beda * rataRataHarga;
-                sisaHutangBaru += valMinus;
-                statusMinus = valMinus;
-            }
-
-            document.getElementById("minusTotalText").innerText = formatRupiahGlobal(statusMinus || 0);
-            document.getElementById("sisaHutangText").innerText = formatRupiahGlobal(sisaHutangBaru);
-
-            let setorBersih = totTunai - hitungKomisi + bayarHutang;
-            document.getElementById("setorBersihText").innerText = formatRupiahGlobal(setorBersih);
+            window.globalMinusHutang = minusRp;
         }
 
         function bukaPopupKonfirmasiSimpan() {
-            if(!document.getElementById("tanggalKasir").value) return alert("Pilih Tanggal!");
-            if(!document.getElementById("driver").value) return alert("Pilih Rider!");
-            
-            document.getElementById("popTotalTerjual").innerText = document.getElementById("totalCupText").innerText;
-            document.getElementById("popMinusHutang").innerText = document.getElementById("minusTotalText").innerText;
-            document.getElementById("popSisaHutang").innerText = document.getElementById("sisaHutangText").innerText;
+            if(!document.getElementById("driver").value) return alert("Pilih Rider terlebih dahulu!");
+            hitungOtomatisKasir();
             document.getElementById("popTotalTunai").innerText = document.getElementById("totalTunaiKasir").value;
             document.getElementById("popTotalQris").innerText = document.getElementById("totalQrisKasir").value;
+            document.getElementById("popMinusHutang").innerText = document.getElementById("minusTotalText").innerText;
+            document.getElementById("popSisaHutang").innerText = document.getElementById("sisaHutangText").innerText;
+            document.getElementById("popTotalTerjual").innerText = document.getElementById("totalCupText").innerText;
             document.getElementById("popTotalKomisi").innerText = document.getElementById("totalKomisiText").innerText;
             document.getElementById("popSetoranBersih").innerText = document.getElementById("setorBersihText").innerText;
-            
             document.getElementById("popupSimpan").classList.replace("hidden", "flex");
         }
 
         function lanjutKeStruk() {
             document.getElementById("popupSimpan").classList.replace("flex", "hidden");
+            const waktuRealtime = new Date().toLocaleTimeString('id-ID'); 
             document.getElementById("statusSinkronisasiText").innerText = "🔄 SINKRONISASI KE DATABASE...";
             
+            const minusRpOnly = ekstrakAngkaGlobal(document.getElementById("minusTotalText").innerText); 
+            const sisaHutangReal = ekstrakAngkaGlobal(document.getElementById("sisaHutangText").innerText);
+            
             const pld = { 
-                action: "saveKasir", 
-                tanggal: document.getElementById("tanggalKasir").value, 
-                jam: new Date().toLocaleTimeString('id-ID'), 
-                driver: document.getElementById("driver").value, 
-                pic_penerima: document.getElementById("picPenerimaKasir").value, 
-                total_cash: document.getElementById("totalTunaiKasir").value, 
-                total_qris: document.getElementById("totalQrisKasir").value, 
-                hutang_awal: document.getElementById("displayHutangKasir").value, 
-                bayar_hutang: document.getElementById("bayarHutangKasir").value, 
-                sisa_hutang: ekstrakAngkaGlobal(document.getElementById("sisaHutangText").innerText), 
-                minus: 0, 
-                tambah_hutang: document.getElementById("minusTotalText").innerText, 
-                komisi_rider: document.getElementById("totalKomisiText").innerText, 
-                total_volume: document.getElementById("totalCupText").innerText, 
-                omzet_bersih: document.getElementById("totalOmzetText").innerText, 
-                pengeluaran: document.getElementById("pengeluaranKasir").value, 
-                ket_pengeluaran: document.getElementById("ketPengeluaranKasir").value, 
-                produk: [] 
+                action: "saveKasir", tanggal: document.getElementById("tanggalKasir").value, jam: waktuRealtime, driver: document.getElementById("driver").value, pic_penerima: document.getElementById("picPenerimaKasir").value, 
+                total_cash: document.getElementById("totalTunaiKasir").value, total_qris: document.getElementById("totalQrisKasir").value, hutang_awal: document.getElementById("displayHutangKasir").value, 
+                bayar_hutang: document.getElementById("bayarHutangKasir").value, sisa_hutang: sisaHutangReal, minus: Math.abs(minusRpOnly), tambah_hutang: document.getElementById("minusTotalText").innerText,
+                komisi_rider: document.getElementById("totalKomisiText").innerText, total_volume: document.getElementById("totalCupText").innerText, omzet_bersih: document.getElementById("totalOmzetText").innerText,
+                pengeluaran: document.getElementById("pengeluaranKasir").value || 0, ket_pengeluaran: document.getElementById("ketPengeluaranKasir").value || "", produk: [] 
             };
             
             daftarProdukKasir.forEach((p, i) => { 
-                pld.produk.push({ nama_produk: p.nama, stok_awal: document.getElementById(`kS-${i}`).value, bonus_claimed: document.getElementById(`kB-${i}`).value, sisa: document.getElementById(`kSi-${i}`).value, terjual_tunai: document.getElementById(`kT-${i}`).value, terjual_qris: document.getElementById(`kQ-${i}`).value, total_cup: document.getElementById(`kTot-${i}`).innerText, wastage: document.getElementById(`kW-${i}`).value }); 
+                const sVal = parseInt(document.getElementById(`kS-${i}`).value)||0; 
+                const bVal = parseInt(document.getElementById(`kB-${i}`).value)||0; 
+                const siVal = parseInt(document.getElementById(`kSi-${i}`).value)||0; 
+                const tVal = parseInt(document.getElementById(`kT-${i}`).value)||0; 
+                const qVal = parseInt(document.getElementById(`kQ-${i}`).value)||0; 
+                const wVal = parseInt(document.getElementById(`kW-${i}`).value)||0; 
+                const tot = tVal + qVal; 
+                const evalTot = siVal + tVal + qVal + wVal - sVal; 
+                let sts = "Sesuai"; if (evalTot < 0) sts = `Minus ${Math.abs(evalTot)} Cup`; else if (evalTot > 0) sts = `+${evalTot} Kelebihan`; 
+                pld.produk.push({ nama_produk: p.nama, stok_awal: sVal, bonus_claimed: bVal, sisa: siVal, terjual_tunai: tVal, terjual_qris: qVal, total_cup: tot, wastage: wVal, status: sts }); 
             });
+            
+            const b1T = parseInt(document.getElementById("bundle1-T")?.value) || 0;
+            const b1Q = parseInt(document.getElementById("bundle1-Q")?.value) || 0;
+            if (b1T + b1Q > 0) pld.produk.push({ nama_produk: "BUNDLING 1", stok_awal: 0, bonus_claimed: 0, sisa: 0, terjual_tunai: b1T, terjual_qris: b1Q, total_cup: b1T+b1Q, wastage: 0, status: "Promo" });
+            
+            const b2T = parseInt(document.getElementById("bundle2-T")?.value) || 0;
+            const b2Q = parseInt(document.getElementById("bundle2-Q")?.value) || 0;
+            if (b2T + b2Q > 0) pld.produk.push({ nama_produk: "BUNDLING 2", stok_awal: 0, bonus_claimed: 0, sisa: 0, terjual_tunai: b2T, terjual_qris: b2Q, total_cup: b2T+b2Q, wastage: 0, status: "Promo" });
             
             fetch(APP_URL, { method: "POST", body: JSON.stringify(pld) }).then(() => { 
                 document.getElementById("statusSinkronisasiText").innerText = "✅ TERSIMPAN KE DATABASE PUSAT";
@@ -1460,25 +1518,34 @@ let currentUser = null;
         }
 
         function renderStrukUI() {
+            let lH = "";
+            daftarProdukKasir.forEach((p, i) => { 
+                const sVal = parseInt(document.getElementById(`kS-${i}`).value)||0; 
+                const siVal = parseInt(document.getElementById(`kSi-${i}`).value)||0; 
+                const tVal = parseInt(document.getElementById(`kT-${i}`).value)||0; 
+                const qVal = parseInt(document.getElementById(`kQ-${i}`).value)||0; 
+                const wVal = parseInt(document.getElementById(`kW-${i}`).value)||0; 
+                const tot = tVal + qVal; 
+                if (tot > 0 || sVal > 0 || wVal > 0) {
+                    lH += `<div class="py-1 flex justify-between border-b border-[#222]">
+                        <span>${p.nama} (${tot} Pcs)</span>
+                        <span class="text-gray-400"> ST:${sVal} | S:${siVal} | T:${tVal} | Q:${qVal} | W:${wVal}</span>
+                    </div>`;
+                }
+            });
+            
+            const b1T = parseInt(document.getElementById("bundle1-T")?.value) || 0;
+            const b1Q = parseInt(document.getElementById("bundle1-Q")?.value) || 0;
+            if(b1T + b1Q > 0) lH += `<div class="py-1 flex justify-between border-b border-[#222] text-orange-400"><span>🎁 BUNDLING 1</span><span>Qty: ${b1T+b1Q}</span></div>`;
+            
+            const b2T = parseInt(document.getElementById("bundle2-T")?.value) || 0;
+            const b2Q = parseInt(document.getElementById("bundle2-Q")?.value) || 0;
+            if(b2T + b2Q > 0) lH += `<div class="py-1 flex justify-between border-b border-[#222] text-orange-400"><span>🎁 BUNDLING 2</span><span>Qty: ${b2T+b2Q}</span></div>`;
+
+            document.getElementById("recProducts").innerHTML = lH;
             document.getElementById("recDriver").innerText = document.getElementById("driver").value;
             document.getElementById("recPic").innerText = document.getElementById("picPenerimaKasir").value;
             document.getElementById("recTanggal").innerText = document.getElementById("tanggalKasir").value;
-            
-            let pHTML = "";
-            daftarProdukKasir.forEach((p, i) => {
-                let v = parseInt(document.getElementById(`kTot-${i}`).innerText);
-                let w = parseInt(document.getElementById(`kW-${i}`).value)||0;
-                let t = parseInt(document.getElementById(`kT-${i}`).value)||0;
-                let q = parseInt(document.getElementById(`kQ-${i}`).value)||0;
-                if(v > 0 || w > 0) {
-                    let desc = [];
-                    if(t>0) desc.push(`${t} Tunai`);
-                    if(q>0) desc.push(`${q} QRIS`);
-                    if(w>0) desc.push(`${w} Wstg`);
-                    pHTML += `<div class="flex justify-between border-b border-[#333] pb-1 mt-1"><span>${namaSingkatProduk[p.nama]} <span class="text-gray-500">(${desc.join(', ')})</span></span><span class="font-bold">${v}</span></div>`;
-                }
-            });
-            document.getElementById("recProducts").innerHTML = pHTML;
             
             document.getElementById("recCash").innerText = document.getElementById("totalTunaiKasir").value;
             document.getElementById("recQris").innerText = document.getElementById("totalQrisKasir").value;
@@ -1489,217 +1556,6 @@ let currentUser = null;
             document.getElementById("recSetorBersih").innerText = document.getElementById("setorBersihText").innerText;
             
             document.getElementById("receiptPageContainer").classList.remove("hidden");
-        }
-
-        // --- RENDER TABEL STOCK & LOGIKA ---
-        function renderTabelStock() {
-            const tbody = document.getElementById("productRowsStock"); 
-            if(!tbody) return;
-            tbody.innerHTML = "";
-            daftarProdukKasir.forEach((p, i) => {
-                let namaTampil = p.nama; if (p.fontEmas) namaTampil = `<span class="text-[#bf953f] font-black">${p.nama}</span>`;
-                // Default 5 untuk semua, khusus untuk SI KOPSU AREN diset ke 15 sesuai data pada array daftarProdukKasir
-                let defaultStok = p.stok !== undefined ? p.stok : 5; 
-                tbody.innerHTML += `<tr class="border-b border-[#333]">
-                    <td class="py-2 px-1 text-white text-[9px] font-bold">${namaTampil}</td>
-                    <td class="py-2 text-center"><select id="sS-${i}" onchange="hitungOtomatisStock()" class="w-12 bg-[#111] border border-gray-600 text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(100, defaultStok)}</select></td>
-                    <td class="py-2 text-center"><select id="sB-${i}" onchange="hitungOtomatisStock()" class="w-12 bg-[#111] border border-gray-600 text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(100, 0)}</select></td>
-                    <td class="py-2 text-center text-[#ffb74d] font-black text-[10px]" id="sTot-${i}">${defaultStok}</td>
-                </tr>`;
-            });
-            setTimeout(hitungOtomatisStock, 100);
-        }
-
-        function hitungOtomatisStock() {
-            let grandTot = 0;
-            daftarProdukKasir.forEach((p, i) => {
-                let s = parseInt(document.getElementById(`sS-${i}`).value) || 0;
-                let b = parseInt(document.getElementById(`sB-${i}`).value) || 0;
-                document.getElementById(`sTot-${i}`).innerText = s + b;
-                grandTot += (s + b);
-            });
-            document.getElementById("totalCupDibawa").innerText = grandTot + " Cup";
-        }
-
-        function bukaPopupStock() {
-            if(!document.getElementById("tanggalStock").value) return alert("Pilih Tanggal!");
-            if(!document.getElementById("driverStock").value) return alert("Pilih Rider!");
-            document.getElementById("popupKonfirmasiStock").classList.replace("hidden", "flex");
-        }
-
-        function previewStockImages(input) {
-            if (input.files && input.files.length > 0) {
-                let sisaSlot = 5 - stockImagesBase64.length;
-                let fileCount = Math.min(input.files.length, sisaSlot);
-                
-                let processedCount = 0;
-                
-                for(let i=0; i<fileCount; i++) {
-                    let file = input.files[i];
-                    let reader = new FileReader();
-                    reader.onload = function(e) {
-                        let img = new Image();
-                        img.onload = function() {
-                            let canvas = document.createElement("canvas");
-                            let ctx = canvas.getContext("2d");
-                            let maxW = 600, maxH = 800;
-                            let width = img.width, height = img.height;
-                            if (width > height) { if (width > maxW) { height *= maxW / width; width = maxW; } } 
-                            else { if (height > maxH) { width *= maxH / height; height = maxH; } }
-                            canvas.width = width; canvas.height = height;
-                            ctx.drawImage(img, 0, 0, width, height);
-                            
-                            stockImagesBase64.push(canvas.toDataURL("image/jpeg", 0.6));
-                            
-                            processedCount++;
-                            if(processedCount === fileCount) renderPreviewStock();
-                        }
-                        img.src = e.target.result;
-                    }
-                    reader.readAsDataURL(file);
-                }
-            }
-        }
-
-        function renderPreviewStock() {
-            let c = document.getElementById("previewContainerStock"); c.innerHTML = "";
-            stockImagesBase64.forEach((src, idx) => {
-                c.innerHTML += `<div class="relative w-16 h-16 flex-none rounded border border-[#bf953f] overflow-hidden"><img src="${src}" class="w-full h-full object-cover"><button onclick="hapusFotoStock(${idx})" class="absolute top-0 right-0 bg-red-600 text-white text-[8px] px-1 font-bold">X</button></div>`;
-            });
-            let txt = document.getElementById("teksJumlahFoto");
-            txt.innerText = `${stockImagesBase64.length} Foto Terkumpul (Min. 2)`;
-            if(stockImagesBase64.length >= 2) { txt.classList.replace("text-red-400", "text-emerald-400"); document.getElementById("btnKirimStockDb").disabled = false; document.getElementById("btnKirimStockDb").classList.replace("bg-gray-700", "bg-emerald-600"); document.getElementById("btnKirimStockDb").classList.replace("text-gray-500", "text-white"); }
-        }
-
-        function hapusFotoStock(idx) { stockImagesBase64.splice(idx, 1); renderPreviewStock(); }
-
-        function kirimDataStock() {
-            let btn = document.getElementById("btnKirimStockDb");
-            btn.innerText = "MENGIRIM..."; btn.disabled = true;
-
-            const pld = { 
-                action: "saveStock", 
-                tanggal: document.getElementById("tanggalStock").value, 
-                jam: new Date().toLocaleTimeString('id-ID'), 
-                driver: document.getElementById("driverStock").value, 
-                pic_penerima: document.getElementById("picPenerimaStock").value, 
-                total_cup_dibawa: document.getElementById("totalCupDibawa").innerText, 
-                produk: [], 
-                images: stockImagesBase64 
-            };
-            
-            daftarProdukKasir.forEach((p, i) => { pld.produk.push({ nama_produk: p.nama, stok: document.getElementById(`sS-${i}`).value, bonus: document.getElementById(`sB-${i}`).value, total: document.getElementById(`sTot-${i}`).innerText }); });
-
-            fetch(APP_URL, { method: "POST", body: JSON.stringify(pld) }).then(() => {
-                document.getElementById("popupKonfirmasiStock").classList.replace("flex", "hidden");
-                document.getElementById("popupSuksesStock").classList.replace("hidden", "flex");
-            }).catch(() => {
-                alert("Gagal kirim ke database! Pastikan internet stabil.");
-                btn.innerText = "KIRIM DATA"; btn.disabled = false;
-            });
-        }
-
-        function bagikanPesanStock() { 
-            const drv = document.getElementById("driverStock").options[document.getElementById("driverStock").selectedIndex].text; 
-            const pic = document.getElementById("picPenerimaStock").value; 
-            const tgl = document.getElementById("tanggalStock").value; 
-            const now = new Date(); 
-            const jam = String(now.getHours()).padStart(2, '0') + '.' + String(now.getMinutes()).padStart(2, '0'); 
-            
-            let m = `*LAPORAN STOCK SI FOUR AM*\n--------------------------------------\n👤 Nama Crew: ${drv}\n👥 PIC: ${pic}\n📅 Tanggal Laporan: ${tgl} (${jam} WIB)\n--------------------------------------\n\n*DETAIL STOCK:*\n`; 
-            let ts = 0, tb = 0; 
-            daftarProdukKasir.forEach((p, i) => { 
-                const s = parseInt(document.getElementById(`sAwal-${i}`).value)||0; 
-                const b = parseInt(document.getElementById(`bAwal-${i}`).value)||0; 
-                m += `- ${p.nama}: ${s}+${b} = ${s + b}\n`; 
-                ts += s; tb += b; 
-            }); 
-            m += `\n--------------------------------------\n📊 TOTAL KESELURUHAN:\n* Stock Utama: ${ts} Cup\n* Total Bonus: ${tb} Cup\n* GRAND TOTAL: ${ts + tb} Cup\n--------------------------------------\n_(Bukti foto telah terunggah ke sistem)_\n\n🔥 Semangat jualan! 🚀☕`; 
-            window.open(`https://wa.me/?text=${encodeURIComponent(m)}`, '_blank'); 
-        }
-
-        function pencetSembarangResetStock() { window.location.reload(); }
-
-        function renderTabelAkun() {
-            let tbody = document.getElementById("tbodyAkunGlobal"); tbody.innerHTML = "";
-            for(let key in appAccounts) {
-                let a = appAccounts[key];
-                let color = a.role === "Super Admin" ? "text-red-400" : (a.role === "Tim Bar" ? "text-emerald-400" : "text-[#bf953f]");
-                tbody.innerHTML += `<tr><td class="p-3 text-white font-bold">${key}</td><td class="p-3 text-gray-300 uppercase">${a.name}</td><td class="p-3 font-bold ${color} uppercase">${a.role}</td></tr>`;
-            }
-        }
-
-        // --- GALERI BUKTI STOCK ---
-        function aturTanggalBuktiStock() {
-            let p = document.getElementById("bsPeriode").value;
-            let d = new Date(); let m = d.toISOString().split('T')[0];
-            let tglM = document.getElementById("bsTglMulai"); let tglA = document.getElementById("bsTglAkhir");
-
-            if(p === 'hari_ini') { tglM.value = m; tglA.value = m; }
-            else if(p === 'kemarin') { d.setDate(d.getDate()-1); let x = d.toISOString().split('T')[0]; tglM.value = x; tglA.value = x; }
-            else if(p === 'minggu_ini') { let w = d.getDate() - d.getDay() + (d.getDay()===0?-6:1); let x = new Date(d.setDate(w)).toISOString().split('T')[0]; tglM.value = x; tglA.value = m; }
-            else if(p === 'bulan_ini') { tglM.value = new Date(d.getFullYear(), d.getMonth(), 1).toISOString().split('T')[0]; tglA.value = new Date(d.getFullYear(), d.getMonth() + 1, 0).toISOString().split('T')[0]; }
-            else if(p === 'bulan_kemarin') { tglM.value = new Date(d.getFullYear(), d.getMonth() - 1, 1).toISOString().split('T')[0]; tglA.value = new Date(d.getFullYear(), d.getMonth(), 0).toISOString().split('T')[0]; }
-        }
-
-        async function cariBuktiStock() {
-            let driver = document.getElementById("bsRider").value;
-            let start = document.getElementById("bsTglMulai").value;
-            let end = document.getElementById("bsTglAkhir").value;
-
-            if(!driver) return alert("Pilih Rider terlebih dahulu!");
-
-            document.getElementById("loadingBs").classList.remove("hidden");
-            document.getElementById("bsResults").innerHTML = "";
-
-            try {
-                let res = await fetch(`${APP_URL}?action=getBuktiStock&driver=${driver}&start=${start}&end=${end}`);
-                let data = await res.json();
-                document.getElementById("loadingBs").classList.add("hidden");
-
-                if(data.status === "success" && data.data.length > 0) {
-                    let html = "";
-                    data.data.forEach(x => {
-                        let links = x.link_foto.split(",");
-                        links.forEach((l, i) => {
-                            if(l.trim() !== "") {
-                                html += `<div class="bg-[#111] p-1 rounded-lg border border-[#333] relative group">
-                                    <div class="absolute top-0 left-0 bg-black/80 text-[8px] text-orange-400 p-1 rounded-br-lg font-bold z-10">${x.tanggal}</div>
-                                    <img src="${l.trim()}" class="w-full h-32 object-cover rounded" onclick="window.open('${l.trim()}', '_blank')">
-                                    <p class="text-[9px] text-center text-gray-400 mt-1 uppercase truncate">${x.pic} - Pic ${i+1}</p>
-                                </div>`;
-                            }
-                        });
-                    });
-                    document.getElementById("bsResults").innerHTML = html || "<p class='col-span-2 text-center text-xs text-gray-500'>Tidak ada link foto valid.</p>";
-                } else {
-                    document.getElementById("bsResults").innerHTML = "<p class='col-span-2 text-center text-xs text-red-500 font-bold mt-4'>Tidak ada foto di periode ini.</p>";
-                }
-            } catch(e) {
-                document.getElementById("loadingBs").classList.add("hidden");
-                alert("Gagal menarik data foto.");
-            }
-        }
-
-        // --- EXPORT PDF & PRINT ---
-        function downloadPDFTable() {
-            const el = document.getElementById('tabelUtamaID');
-            const opt = { margin: 0.2, filename: `Data_Setoran_${document.getElementById('riderSelectDesktop').value}_${document.getElementById('tglMulai').value}.pdf`, image: { type: 'jpeg', quality: 0.98 }, html2canvas: { scale: 2, useCORS: true, backgroundColor: '#111111' }, jsPDF: { unit: 'in', format: 'letter', orientation: 'landscape' } };
-            html2pdf().set(opt).from(el).save();
-        }
-
-        function printTableData() {
-            const el = document.getElementById('tabelUtamaID').outerHTML;
-            const win = window.open('', '', 'height=700,width=900');
-            win.document.write('<html><head><title>Print Data Setoran</title>');
-            win.document.write('<style>body{font-family:sans-serif; background:#111; color:#fff;} table{width:100%; border-collapse:collapse; font-size:10px;} th,td{border:1px solid #444; padding:4px;} th{background:#222; color:#bf953f;}</style>');
-            win.document.write('</head><body>');
-            win.document.write('<h2 style="text-align:center; color:#fcf6ba;">DATA SETORAN SI FOUR AM</h2>');
-            win.document.write(el);
-            win.document.write('</body></html>');
-            win.document.close();
-            win.focus();
-            setTimeout(() => { win.print(); win.close(); }, 500);
         }
 
         // FUNGSI UPDATE UNTUK MENGIRIM RECEIPT KE WA SECARA OTOMATIS
@@ -1740,7 +1596,7 @@ let currentUser = null;
                 motivasi = "Tetap semangat! Mari hajar rute besok dengan energi penuh! 💪🔥"; 
             }
 
-            const msg = `*STRUK REKAP REVENUE SI FOUR AM*\n----------------------------------\n` +
+            const msg = `*STRUK REKAP SI FOUR AM*\n----------------------------------\n` +
                         `👤 *Rider:* ${drv}\n` +
                         `👥 *PIC:* ${pic}\n` +
                         `📅 *Waktu:* ${tgl}\n` +
@@ -1786,6 +1642,181 @@ let currentUser = null;
             });
         }
 
+        // ================= FUNGSI PELENGKAP (PENYELESAIAN KODE TERPOTONG) =================
+
+        function fallbackDownloadAndWA(canvas, fileName, msg) {
+            const link = document.createElement('a');
+            link.download = fileName;
+            link.href = canvas.toDataURL("image/png");
+            link.click();
+            const waUrl = `https://wa.me/?text=${encodeURIComponent(msg)}`;
+            window.open(waUrl, '_blank');
+            document.getElementById("popupSuksesWA").classList.replace("hidden", "flex");
+        }
+
+        function pencetSembarangReset() {
+            document.getElementById("receiptPageContainer").classList.add("hidden");
+            window.location.reload();
+        }
+
+        function resetKeAwal() {
+            document.getElementById("popupSuksesWA").classList.replace("flex", "hidden");
+            window.location.reload();
+        }
+
+        function aturTanggalBuktiStock() {
+            let p = document.getElementById("bsPeriode").value;
+            let d = new Date(); let m = d.toISOString().split('T')[0];
+            let tglM = document.getElementById("bsTglMulai"); let tglA = document.getElementById("bsTglAkhir");
+            
+            if(p === 'hari_ini') { tglM.value = m; tglA.value = m; }
+            else if(p === 'kemarin') { d.setDate(d.getDate()-1); let x = d.toISOString().split('T')[0]; tglM.value = x; tglA.value = x; }
+            else if(p === 'minggu_ini') { 
+                let w = d.getDate() - d.getDay() + (d.getDay()===0?-6:1); 
+                let x = new Date(d.setDate(w)).toISOString().split('T')[0]; tglM.value = x; tglA.value = m; 
+            }
+            else if(p === 'bulan_ini') { 
+                let startD = new Date(d.getFullYear(), d.getMonth() - 1, 16);
+                let endD = new Date(d.getFullYear(), d.getMonth(), 15);
+                tglM.value = new Date(startD.getTime() - (startD.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
+                tglA.value = new Date(endD.getTime() - (endD.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
+            }
+            else if(p === 'bulan_kemarin') { 
+                let startD = new Date(d.getFullYear(), d.getMonth() - 2, 16);
+                let endD = new Date(d.getFullYear(), d.getMonth() - 1, 15);
+                tglM.value = new Date(startD.getTime() - (startD.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
+                tglA.value = new Date(endD.getTime() - (endD.getTimezoneOffset() * 60000)).toISOString().split('T')[0];
+            }
+        }
+
+        function cariBuktiStock() {
+            const btn = document.getElementById("btnCariBs");
+            const loading = document.getElementById("loadingBs");
+            btn.disabled = true;
+            loading.classList.remove("hidden");
+            document.getElementById("bsResults").innerHTML = "";
+            
+            setTimeout(() => {
+                loading.classList.add("hidden");
+                btn.disabled = false;
+                document.getElementById("bsResults").innerHTML = `<p class="text-[10px] text-gray-500 col-span-2 text-center mt-2">Fitur sinkronisasi foto dengan database Server sedang dalam pengembangan.</p>`;
+            }, 1000);
+        }
+
+        function downloadPDFTable() {
+            const element = document.getElementById('tabelUtamaID');
+            html2pdf().from(element).save('Data_Setoran_SI_FOUR_AM.pdf');
+        }
+
+        function printTableData() {
+            const prtContent = document.getElementById("tabelExportContainer");
+            const WinPrint = window.open('', '', 'left=0,top=0,width=800,height=900,toolbar=0,scrollbars=0,status=0');
+            WinPrint.document.write('<html><head><title>Print Setoran</title></head><body>' + prtContent.innerHTML + '</body></html>');
+            WinPrint.document.close();
+            WinPrint.focus();
+            WinPrint.print();
+            WinPrint.close();
+        }
+
+        function bukaPopupStock() {
+            if(!document.getElementById("driverStock").value) return alert("Pilih Rider terlebih dahulu!");
+            document.getElementById("popupKonfirmasiStock").classList.replace("hidden", "flex");
+        }
+
+        function kirimDataStock() {
+            document.getElementById("btnKirimStockDb").innerText = "MENGIRIM...";
+            document.getElementById("btnKirimStockDb").disabled = true;
+            setTimeout(() => {
+                document.getElementById("popupKonfirmasiStock").classList.replace("flex", "hidden");
+                document.getElementById("popupSuksesStock").classList.replace("hidden", "flex");
+                document.getElementById("btnKirimStockDb").innerText = "KIRIM DATA";
+                document.getElementById("btnKirimStockDb").disabled = false;
+            }, 1000);
+        }
+
+        function pencetSembarangResetStock() {
+            document.getElementById("popupSuksesStock").classList.replace("flex", "hidden");
+            stockImagesBase64 = []; // Reset Array Foto
+            renderPreviewStock(); // Clear preview display
+            window.location.reload();
+        }
+
+        function bagikanPesanStock() { 
+            const drv = document.getElementById("driverStock").options[document.getElementById("driverStock").selectedIndex].text; 
+            const pic = document.getElementById("picPenerimaStock").value; 
+            const tgl = document.getElementById("tanggalStock").value; 
+            const now = new Date(); 
+            const jam = String(now.getHours()).padStart(2, '0') + '.' + String(now.getMinutes()).padStart(2, '0'); 
+            
+            let m = `*LAPORAN STOCK SI FOUR AM*\n--------------------------------------\n👤 Nama Crew: ${drv}\n👥 PIC: ${pic}\n📅 Tanggal Laporan: ${tgl} (${jam} WIB)\n--------------------------------------\n\n*DETAIL STOCK:*\n`; 
+            let ts = 0, tb = 0; 
+            daftarProdukKasir.forEach((p, i) => { 
+                const s = parseInt(document.getElementById(`sAwal-${i}`).value)||0; 
+                const b = parseInt(document.getElementById(`bAwal-${i}`).value)||0; 
+                m += `- ${p.nama}: ${s}+${b} = ${s + b}\n`; 
+                ts += s; tb += b; 
+            }); 
+            m += `\n--------------------------------------\n📊 TOTAL KESELURUHAN:\n* Stock Utama: ${ts} Cup\n* Total Bonus: ${tb} Cup\n* GRAND TOTAL: ${ts + tb} Cup\n--------------------------------------\n_(Bukti foto telah terunggah ke sistem)_\n\n🔥 Semangat jualan! 🚀☕`; 
+            window.open(`https://wa.me/?text=${encodeURIComponent(m)}`, '_blank'); 
+        }
+
+        // ================= PERBAIKAN FUNGSI FOTO STOCK (TIDAK TERBATAS & MULTIPLE) =================
+        function previewStockImages(input) {
+            if (input.files && input.files.length > 0) {
+                Array.from(input.files).forEach(file => {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        // Kunci Perbaikan: Gunakan .push() agar foto baru ditambahkan ke data lama, bukan ditimpa.
+                        stockImagesBase64.push(e.target.result);
+                        renderPreviewStock();
+                    }
+                    reader.readAsDataURL(file);
+                });
+            }
+            // Kosongkan value input agar jika pengguna klik tombol tambah lagi dan memilih file yang sama/baru tetap terdeteksi oleh "onchange"
+            input.value = "";
+        }
+
+        function renderPreviewStock() {
+            const container = document.getElementById("previewContainerStock");
+            container.innerHTML = "";
+            
+            // Render ulang seluruh foto yang ada di dalam array storage
+            stockImagesBase64.forEach((src, index) => {
+                container.innerHTML += `
+                    <div class="relative inline-block mt-2 flex-shrink-0 mr-2">
+                        <img src="${src}" class="h-20 w-20 object-cover rounded-md border border-[#bf953f]">
+                        <button type="button" onclick="hapusFotoStock(${index})" class="absolute -top-2 -right-2 bg-red-600 text-white rounded-full w-5 h-5 flex items-center justify-center text-[10px] font-bold shadow-lg">X</button>
+                    </div>
+                `;
+            });
+            
+            const textJumlah = document.getElementById("teksJumlahFoto");
+            textJumlah.innerText = `${stockImagesBase64.length} Foto Terkumpul (Min. 2)`;
+            
+            if(stockImagesBase64.length >= 2) {
+                textJumlah.classList.replace("text-red-400", "text-emerald-400");
+            } else {
+                textJumlah.classList.replace("text-emerald-400", "text-red-400");
+            }
+            
+            const btnKirim = document.getElementById("btnKirimStockDb");
+            if (stockImagesBase64.length >= 2) {
+                btnKirim.disabled = false;
+                btnKirim.classList.remove("bg-gray-700", "text-gray-500", "cursor-not-allowed");
+                btnKirim.classList.add("bg-gradient-to-r", "from-[#bf953f]", "to-[#fbf5b7]", "text-[#111111]");
+            } else {
+                btnKirim.disabled = true;
+                btnKirim.classList.add("bg-gray-700", "text-gray-500", "cursor-not-allowed");
+                btnKirim.classList.remove("bg-gradient-to-r", "from-[#bf953f]", "to-[#fbf5b7]", "text-[#111111]");
+            }
+        }
+
+        // Fungsi baru untuk menghapus foto secara individual apabila pengguna tidak sengaja mengupload gambar yang salah
+        function hapusFotoStock(index) {
+            stockImagesBase64.splice(index, 1);
+            renderPreviewStock();
+        }
 
         function generateNoInvoice() {
             const date = new Date();
@@ -1795,37 +1826,6 @@ let currentUser = null;
             document.getElementById('noInvoiceAuto').value = globalInvoiceNumber;
         }
 
-        // AUTOCOMPLETE CUSTOMER INVOICE
-        function fetchCustomerData() {
-            if(customerDataDB.length > 0) return; // cache
-            fetch(URL_API + "?action=getCustomerData")
-            .then(res => res.json())
-            .then(res => {
-                if(res.status === 'success') customerDataDB = res.data;
-            }).catch(e => console.log("Gagal muat customer db", e));
-        }
-
-        function cekAutocompleteCustomer(val, tipe) {
-            let matches = [];
-            if(tipe === 'nama' && val.length >= 3) {
-                matches = customerDataDB.filter(c => c.nama.toLowerCase().includes(val.toLowerCase()));
-                let datalist = document.getElementById('listNamaCustomer');
-                datalist.innerHTML = matches.map(m => `<option value="${m.nama}">`).join('');
-                
-                // Coba auto fill wa
-                let exact = matches.find(m => m.nama.toLowerCase() === val.toLowerCase());
-                if(exact) document.getElementById('waCustomerInv').value = exact.wa;
-            } 
-            else if (tipe === 'wa' && val.length >= 5) {
-                matches = customerDataDB.filter(c => String(c.wa).includes(val));
-                let datalist = document.getElementById('listWaCustomer');
-                datalist.innerHTML = matches.map(m => `<option value="${m.wa}">`).join('');
-                
-                // Coba auto fill nama
-                let exact = matches.find(m => String(m.wa) === val);
-                if(exact) document.getElementById('namaCustomerInv').value = exact.nama;
-            }
-        }
 
         // RENDER TABEL INVOICE (HANYA QTY & TAMBAH)
         function buatOpsiMaksimalKasir(max) {
@@ -1898,7 +1898,31 @@ let currentUser = null;
         // LANJUT KE STRUK PDF & SIMPAN DB
         function lanjutKeStrukInvoice() {
             document.getElementById('popupSimpanInvoice').classList.replace('flex', 'hidden');
-            
+        function lanjutKeStrukInvoice() {
+            // Sembunyikan popup konfirmasi
+            document.getElementById('popupSimpanInvoice').classList.replace('flex', 'hidden');
+    
+            // Tampilkan tampilan PDF (hapus 'hidden' dari section PDF, lalu pastikan view-invoice di-hide)
+            document.getElementById('view-invoice').classList.add('hidden');
+            document.getElementById('view-invoice-receipt').classList.remove('hidden');
+
+            // Ambil elemen PDF dan Nomor Invoice
+            let element = document.getElementById('invoicePDFContainer');
+            let noInvoice = document.getElementById('pdfNoInvoice').innerText || "INV";
+
+            // Konfigurasi html2pdf (Sangat penting: useCORS: true untuk membaca gambar proxy)
+            let opt = {
+            margin:       0,
+            filename:     `Invoice_${noInvoice}_SIFOURAM.pdf`,
+            image:        { type: 'jpeg', quality: 0.98 },
+            html2canvas:  { scale: 2, useCORS: true, allowTaint: true },
+            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+
+            // Jalankan render lalu Download PDF Otomatis!
+            html2pdf().set(opt).from(element).save();
+        }    
+        
             // 1. Simpan ke GS Database
             let dataSimpan = {
                 action: 'saveInvoice',
@@ -1970,35 +1994,28 @@ let currentUser = null;
         }
 
         // KIRIM WA & DOWNLOAD PDF
-        function kirimWhatsAppInvoice() {
-            const nama = document.getElementById('namaCustomerInv').value;
-            const noWa = document.getElementById('waCustomerInv').value;
-            const noInvoice = document.getElementById('noInvoiceAuto').value;
-            
-            // 1. Download PDF
-            const elemenPdf = document.getElementById('invoicePDFContainer');
-            const opt = {
-                margin: 0,
-                filename: `SI FOUR A.M INVOICE ${noInvoice}.pdf`,
-                image: { type: 'jpeg', quality: 1 },
-                html2canvas: { scale: 3, useCORS: true },
-                jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-            };
-            
-            html2pdf().set(opt).from(elemenPdf).save().then(() => {
-                // 2. Redirect ke WA setelah download mulai
-                let hour = new Date().getHours();
-                let salam = "Selamat Pagi";
-                if(hour >= 11 && hour < 15) salam = "Selamat Siang";
-                else if(hour >= 15 && hour < 18) salam = "Selamat Sore";
-                else if(hour >= 18 || hour < 4) salam = "Selamat Malam";
+            function kirimWhatsAppInvoice() {
+                let noWA = document.getElementById('waCustomerInv').value.trim();
+                let noInvoice = document.getElementById('pdfNoInvoice').innerText || document.getElementById('noInvoiceAuto').value || "-";
+    
+        // Format nomor WhatsApp (Ubah angka 0 di depan menjadi 62)
+                if (noWA.startsWith('0')) {
+                noWA = '62' + noWA.substring(1);
+            }
 
-                let pesan = `${salam} kak *${nama}*.\n\nBerikut kami lampirkan File Invoice Pesanan Kopi SI FOUR A.M dengan Nomor *${noInvoice}* (Silahkan attach file PDF yang baru saja terdownload).\n\nMohon dapat ditinjau terlebih dahulu. Jika ada pertanyaan atau penyesuaian terkait rincian INVOICE, silakan hubungi kami kembali.\n\nTerima kasih atas perhatian dan kerja samanya.\nSalam hangat,\n*SI FOUR A.M KOPI*`;
-                
-                let cleanWa = noWa.replace(/^0/, '62');
-                window.open(`https://wa.me/${cleanWa}?text=${encodeURIComponent(pesan)}`, '_blank');
-            });
+        // Teks pesan sesuai permintaan
+            let pesan = `Berikut kami lampirkan File Invoice Pesanan Kopi SI FOUR A.M dengan Nomor *${noInvoice}* (Silahkan attach file PDF yang baru saja terdownload).\n\nMohon dapat ditinjau terlebih dahulu. Jika ada pertanyaan atau penyesuaian terkait rincian INVOICE, silakan hubungi kami kembali.\n\nTerima kasih atas perhatian dan kerja samanya.\nSalam hangat,\n *SI FOUR A.M KOPI*`;
+    
+        // Buka tautan WhatsApp di tab baru
+            let waLink = `https://wa.me/${noWA}?text=${encodeURIComponent(pesan)}`;
+            window.open(waLink, '_blank');
         }
+        // Fungsi baru untuk menghapus foto secara individual apabila pengguna tidak sengaja mengupload gambar yang salah
+        function hapusFotoStock(index) {
+            stockImagesBase64.splice(index, 1);
+            renderPreviewStock();
+        }
+    
     </script>
 </body>
 </html>
