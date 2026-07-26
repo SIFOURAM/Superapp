@@ -530,7 +530,7 @@
         <div class="max-w-md mx-auto space-y-4">
             <div id="captureReceiptArea" class="bg-[#1e1e1e] p-4 rounded-xl border border-gradient-gold text-left space-y-3">
                 <div class="text-center py-2 border-b border-dashed border-[#444]">
-                    <h2 class="text-2xl font-black text-[#fcf6ba]">SI FOUR AM</h2>
+                    <h2 class="text-2xl font-black text-[#f97316]">SI FOUR AM</h2>
                     <p class="text-[9px] uppercase text-gray-400">Official Mobile Receipt</p>
                 </div>
                 <div class="text-xs space-y-1">
@@ -989,7 +989,7 @@
 
                 let targetGap = activeTarget - totPenjualan;
                 if (targetGap > 0) {
-                    document.getElementById('valTargetDekat').innerText = `-${targetGap} Cup`;
+                    document.getElementById('valTargetDekat').innerText = `- ${targetGap} Cup`;
                 } else {
                     let kelebihan = totPenjualan - activeTarget;
                     document.getElementById('valTargetDekat').innerText = `${totPenjualan} - ${activeTarget} = +${kelebihan} (Tercapai!)`;
@@ -1080,7 +1080,7 @@
                 if(rider === "ADMIN") { 
                     sisaHutang = dbHutang.reduce((sum, item) => sum + (parseInt(item.nominal)||0), 0); 
                 } else { 
-                    let h = dbHutang.find(x => x.driver.toUpperCase().trim() === rider.toUpperCase().trim()); 
+                    let h = dbHutang.find(x => x.driver === rider); 
                     if(h) sisaHutang = parseInt(h.nominal)||0; 
                 }
                 document.getElementById('valHutang').innerText = formatRupiahGlobal(sisaHutang);
@@ -1237,10 +1237,10 @@
             daftarProdukKasir.forEach((p, i) => {
                 const maxD = p.nama === "SI KOPSU AREN" ? 50 : 30;
                 tbody.innerHTML += `<tr class="border-b border-[#333]">
-                    <td class="py-2 px-1 text-white text-[9px] font-bold">${p.nama}</td>
-                    <td class="py-2 text-center"><select id="sAwal-${i}" onchange="hitTotStock()" class="w-10 bg-[#111] border border-[#bf953f] text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(maxD, p.stok)}</select></td>
+                    <td class="py-2 px-1 text-gold-sifour text-[9px] font-bold">${p.nama}</td>
+                    <td class="py-2 text-center"><select id="sAwal-${i}" onchange="hitTotStock()" class="w-10 bg-[#111] border border-[#bf953f] text-gold-sifour rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(maxD, p.stok)}</select></td>
                     <td class="py-2 text-center"><select id="bAwal-${i}" onchange="hitTotStock()" class="w-10 bg-[#111] border border-[#bf953f] text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(5, 0)}</select></td>
-                    <td class="py-2 text-center text-[#ffb74d] font-black text-[10px]" id="tAwal-${i}">${p.stok}</td>
+                    <td class="py-2 text-center text-[#f97316] font-black text-[10px]" id="tAwal-${i}">${p.stok}</td>
                 </tr>`;
             }); hitTotStock();
         }
@@ -1259,7 +1259,7 @@
             daftarProdukKasir.forEach((p, i) => {
                 const maxD = p.nama === "SI KOPSU AREN" ? 50 : 30;
                 tbody.innerHTML += `<tr class="border-b border-[#333]">
-                    <td class="py-2 px-1 text-white text-[9px] font-bold">${p.nama}</td>
+                    <td class="py-2 px-1 text-orange-sifour text-[9px] font-bold">${p.nama}</td>
                     <td class="py-2 text-center"><select id="kS-${i}" onchange="hitungOtomatisKasir()" class="w-10 bg-[#111] border border-[#bf953f] text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(maxD, p.stok)}</select></td>
                     <td class="py-2 text-center"><select id="kB-${i}" onchange="hitungOtomatisKasir()" class="w-10 bg-[#111] border border-[#bf953f] text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(5, 0)}</select></td>
                     <td class="py-2 text-center"><select id="kSi-${i}" onchange="hitungOtomatisKasir()" class="w-10 bg-[#111] border border-[#bf953f] text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(maxD, 0)}</select></td>
