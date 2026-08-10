@@ -23,7 +23,7 @@
                         linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c) border-box; 
             border: 1px solid transparent; 
         }
-        .border-gradient-gold-thick {
+        .border-gradient-gold-thick { 
             background: linear-gradient(#1e1e1e, #1e1e1e) padding-box, 
                         linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c) border-box; 
             border: 3px solid transparent; 
@@ -112,7 +112,10 @@
 
                     <div id="loadingDashboard" class="text-center text-xs text-[#bf953f] py-10 font-bold animate-pulse hidden">Menghubungkan ke Server Database...</div>
 
+                    <!-- Layout Utama Dashboard -->
                     <div id="dashboardContent" class="hidden space-y-4">
+                        
+                        <!-- Kolom Metrik Angka -->
                         <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
                             <div class="w-full bg-[#111] text-white rounded p-2 text-xs focus:outline-none border-gradient-gold-thin text-center py-2">
 				<p class="text-[9px] text-gray-400 text-center uppercase font-bold">Total Penjualan</p>
@@ -140,25 +143,28 @@
                             </div>
                             <div class="w-full bg-[#111] text-white rounded p-2 text-xs focus:outline-none border-gradient-gold-thin text-center py-2">
                                 <p class="text-[9px] text-gray-400 font-bold  uppercase">Total Komisi Rider</p>
-                                <h2 id="valKomisi" class="text-lg font-bold text-white mt-1">Rp 0</h2>
+                                <h2 id="valKomisi" class="text-lg font-bold text-gold-sifour mt-1">Rp 0</h2>
                             </div>
                             <div class="w-full bg-gradient-to-r from-[#bf953f] to-[#fbf5b7] text-[#111111] text-white rounded p-2 text-xs focus:outline-none border-gradient-gold-thin text-center py-2 col-span-2 md:col-span-1">
                                 <p class="text-[9px] text-black-sifour uppercase font-bold">Total Komisi + Bonus</p>
                                 <h2 id="valKomisiBonus" class="text-xl font-black text-[#332505] mt-1">RP 0</h2>
                             </div>
                         </div>
-                        <div class="card-dash border-gradient-gold text-center py-1 col-span-2 md:col-span-1">
+                        <!-- Target Bar Progress -->
+                            <div class="card-dash border-gradient-gold text-center py-1 col-span-2 md:col-span-1">
                             <div class="flex justify-between text-xs text-gray-400 mb-1"><span>Progress Target Penjualan</span><span id="valTargetPct" class="text-[#fcf6ba]">0%</span></div>
                             <div class="w-full bg-[#111] rounded-full h-3 border border-[#333] overflow-hidden"><div id="barTarget" class="bg-gradient-to-r from-[#bf953f] to-[#f57c00] h-full rounded-full transition-all duration-1000" style="width: 0%"></div></div>
                         </div>
 
+                        <!-- Kumpulan Canvas Grafik -->
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                            <div class="card-dash border-gradient-gold h-56 flex flex-col"><p class="text-[10px] text-center text-[#bf953f] uppercase font-bold mb-2">Total Cup Rider</p><div class="flex-1 relative"><canvas id="chartRider"></canvas></div></div>
-                            <div class="card-dash border-gradient-gold h-56 flex flex-col"><p class="text-[10px] text-center text-[#bf953f] uppercase font-bold mb-2">Produk Terlaris</p><div class="flex-1 relative"><canvas id="chartMenu"></canvas></div></div>
-                            <div class="card-dash border-gradient-gold h-56 flex flex-col"><p class="text-[10px] text-center text-[#bf953f] uppercase font-bold mb-2">Absen Rider</p><div class="flex-1 relative"><canvas id="chartMasa"></canvas></div></div>
-                            <div class="card-dash border-gradient-gold h-56 flex flex-col"><p class="text-[10px] text-center text-[#bf953f] uppercase font-bold mb-2">Grafik Penjualan Harian</p><div class="flex-1 relative"><canvas id="chartHarian"></canvas></div></div>
+                            <div class="card-dash border-gradient-gold h-56 flex flex-col"><p class="text-[10px] text-center text-gold-sifour uppercase font-bold mb-2">Total Cup Rider</p><div class="flex-1 relative"><canvas id="chartRider"></canvas></div></div>
+                            <div class="card-dash border-gradient-gold h-56 flex flex-col"><p class="text-[10px] text-center text-orange-sifour uppercase font-bold mb-2">Produk Terlaris</p><div class="flex-1 relative"><canvas id="chartMenu"></canvas></div></div>
+                            <div class="card-dash border-gradient-gold h-56 flex flex-col"><p class="text-[10px] text-center text-gold-sifour uppercase font-bold mb-2">Absen Rider</p><div class="flex-1 relative"><canvas id="chartMasa"></canvas></div></div>
+                            <div class="card-dash border-gradient-gold h-56 flex flex-col"><p class="text-[10px] text-center text-gold-sifour uppercase font-bold mb-2">Grafik Penjualan Harian</p><div class="flex-1 relative"><canvas id="chartHarian"></canvas></div></div>
                         </div>
 
+                        <!-- Tabel Riwayat Data Setoran -->
                         <div class="card-dash border-gradient-gold relative !p-0 flex flex-col" id="tabelExportContainer">
                             <h3 class="text-[10px] font-bold text-center text-orange-sifour uppercase tracking-widest p-3 border-gradient-gold-table">Data Setoran</h3>
                             
@@ -180,6 +186,7 @@
                                 </table>
                             </div>
                             
+                            <!-- Tombol dipindahkan ke bawah kolom -->
                             <div class="flex gap-2 p-3 mt-auto border-t border-[#333]">
                                 <button onclick="downloadPDFTable()" class="flex-1 bg-red-600 text-white font-bold py-2 rounded text-[10px] uppercase shadow-lg shadow-red-600/20"><i class='bx bxs-file-pdf'></i> Unduh PDF</button>
                                 <button onclick="printTableData()" class="flex-1 bg-emerald-600 text-white font-bold py-2 rounded text-[10px] uppercase shadow-lg shadow-emerald-600/20"><i class='bx bx-printer'></i> Print Data</button>
@@ -214,7 +221,7 @@
                                 </div>
                                 <div class="col-span-5 md:col-span-4">
                                     <label class="block text-[9px] font-bold text-[#bf953f] mb-1 uppercase">Tanggal</label>
-                                    <input type="date" id="tanggalStock" class="w-full bg-[#111] border-gradient-gold-thin text-white rounded-lg px-2 py-2 text-xs outline-none opacity-70 ">
+                                    <input type="date" id="tanggalStock" readonly class="w-full bg-[#111] border-gradient-gold-thin text-white rounded-lg px-2 py-2 text-xs outline-none opacity-70 pointer-events-none">
                                 </div>
                             </div>
                         </div>
@@ -286,97 +293,17 @@
                             </div>
                             
                             <div class="bg-[#111] p-3 rounded-xl border border-[#bf953f] space-y-2 text-xs shadow-inner">
-                                <div class="flex justify-between items-center border-t border-[#333] pt-2"><span class="font-bold text-red-400">Total Wastage Cup:</span><span id="totalWastageText" class="font-black text-red-400">0 Cup</span></div>
-                                <div class="flex justify-between items-center"><span class="font-bold text-gray-400">Total Terjual (Cup):</span><span id="totalCupText" class="font-black text-white">0 Cup</span></div>
+                                <div class="flex justify-between items-center"><span class="font-bold text-gray-400">Total Komisi Rider:</span><span id="totalKomisiText" class="font-black text-[#fcf6ba]">Rp 0</span></div>
                                 <div class="flex justify-between items-center border-t border-[#333] pt-2"><span class="font-bold text-gray-400">Minus + Hutang Baru:</span><span id="minusTotalText" class="font-black text-red-500">Rp 0</span></div>
-                                <div class="flex justify-between items-center"><span class="font-bold text-gray-400">Sisa Hutang Akhir:</span><span id="sisaHutangText" class="font-black text-[#f57c00]">Rp 0</span></div>                                
-                                <div class="flex justify-between items-center border-t border-[#333] pt-2"><span class="font-bold text-gray-400">Total Komisi Rider:</span><span id="totalKomisiText" class="font-black text-[#fcf6ba]">Rp 0</span></div>
-                                <div class="flex justify-between items-center border-t border-emerald-500/50 pt-2"><span class="font-bold text-gray-400 uppercase">Total Setor Tunai Bersih:</span><span id="setorBersihText" class="font-black text-emerald-400 text-m">Rp 0</span></div>
-                                <div class="flex justify-between items-center pt-1"><span class="font-bold text-emerald-400 uppercase">Total Omzet:</span><span id="totalOmzetText" class="font-black text-emerald-400 text-sm">Rp 0</span></div>
+                                <div class="flex justify-between items-center border-t border-[#333] pt-2"><span class="font-bold text-gray-400">Sisa Hutang Akhir:</span><span id="sisaHutangText" class="font-black text-[#f57c00]">Rp 0</span></div>
+                                <div class="flex justify-between items-center border-t border-[#333] pt-2"><span class="font-bold text-gray-400">Total Terjual (Cup):</span><span id="totalCupText" class="font-black text-white">0 Cup</span></div>
+                                <div class="flex justify-between items-center border-t border-[#333] pt-2"><span class="font-bold text-red-400">Total Wastage Cup:</span><span id="totalWastageText" class="font-black text-red-400">0 Cup</span></div>
+                                <div class="flex justify-between items-center border-t border-[#333] pt-2"><span class="font-bold text-emerald-400">Total Omzet Bersih:</span><span id="totalOmzetText" class="font-black text-emerald-400">Rp 0</span></div>
+                                <div class="flex justify-between items-center border-t border-emerald-500/50 pt-2"><span class="font-bold text-gray-400 uppercase">Total Setor Tunai Bersih:</span><span id="setorBersihText" class="font-black text-emerald-400 text-sm">Rp 0</span></div>
                             </div>
                             
                             <div class="text-center py-1 text-xs font-bold text-emerald-400" id="statusSinkronisasiText">🎯 STATUS REKAP SELESAI</div>
                             <button type="button" onclick="bukaPopupKonfirmasiSimpan()" class="w-full block bg-gradient-to-r from-[#bf953f] to-[#fbf5b7] text-[#111] font-black py-3 rounded-xl uppercase text-xs shadow-lg mt-4" id="btnSimpanKasir">Simpan Setoran Database</button>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-<!-- ================= VIEW 6: INVOICE (MODIFIKASI) ================= -->
-            <section id="view-invoice" class="menu-view hidden w-full relative flex flex-col pt-4">
-                <div class="px-2 md:px-6 pb-2">
-                    <div class="w-full max-w-2xl mx-auto space-y-4">
-                        <div class="border-gradient-gold rounded-xl p-3 shadow-sm bg-[#1e1e1e]">
-                            <div class="grid grid-cols-12 gap-2">
-                                <div class="col-span-12 md:col-span-4">
-                                    <label class="block text-[9px] text-[#bf953f] font-bold mb-1 uppercase">Pilihan Kategori</label>
-                                    <select id="driverInvoice" class="w-full bg-[#111] border-gradient-gold-thin text-white rounded-lg px-2 py-2 text-xs outline-none">
-                                        <option value="PESANAN" selected class="font-bold text-[#fcf6ba] uppercase bg-black">PESANAN</option>
-                                    </select>
-                                </div>
-                                <div class="col-span-7 md:col-span-4">
-                                    <label class="block text-[9px] text-[#bf953f] font-bold mb-1 uppercase">PIC Penerima / Kasir</label>
-                                    <select id="picPenerimaInvoice" class="w-full bg-[#111] border-gradient-gold-thin text-white rounded-lg px-2 py-2 text-xs outline-none"></select>
-                                </div>
-                                <div class="col-span-5 md:col-span-4">
-                                    <label class="block text-[9px] text-[#bf953f] font-bold mb-1 uppercase">Tanggal Invoice</label>
-                                    <input type="date" id="tanggalInvoice" class="w-full bg-[#111] border-gradient-gold-thin text-white rounded-lg px-2 py-2 text-xs outline-none">
-                                </div>
-                            </div>
-
-                            <!-- Tambahan Input Customer -->
-                            <div class="grid grid-cols-12 gap-2 mt-3 pt-3 border-t border-[#333]">
-                                <div class="col-span-12 md:col-span-6">
-                                    <label class="block text-[9px] text-[#bf953f] font-bold mb-1 uppercase">Nama Customer</label>
-                                    <input type="text" id="namaCustomerInv" list="listNamaCustomer" oninput="(this.value, 'nama')" class="w-full bg-[#111] border-gradient-gold-thin text-white rounded-lg px-2 py-2 text-xs outline-none focus:border-[#fcf6ba]" placeholder="Ketik min. 3 huruf">
-                                    <datalist id="listNamaCustomer"></datalist>
-                                </div>
-                                <div class="col-span-12 md:col-span-6">
-                                    <label class="block text-[9px] text-[#bf953f] font-bold mb-1 uppercase">Nomor WhatsApp</label>
-                                    <input type="text" id="waCustomerInv" list="listWaCustomer" oninput="(this.value, 'wa')" class="w-full bg-[#111] border-gradient-gold-thin text-white rounded-lg px-2 py-2 text-xs outline-none focus:border-[#fcf6ba]" placeholder="Ketik min. 5 angka">
-                                    <datalist id="listWaCustomer"></datalist>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="border-gradient-gold rounded-xl p-3 shadow-sm bg-[#1e1e1e] overflow-x-auto">
-                            <!-- Tabel Invoice Sesuai Permintaan -->
-                            <table class="w-full text-left text-xs text-gray-300 min-w-[340px]">
-                                <thead class="bg-[#111] text-[#fcf6ba] uppercase text-[9px]">
-                                    <tr>
-                                        <th class="py-2 px-1 w-1/3">Menu</th>
-                                        <th class="py-2 text-center">Qty</th>
-                                        <th class="py-2 text-center">Tambah</th>
-                                        <th class="py-2 text-right text-[#ffb74d] px-1">Total Harga</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="productRowsInvoice" class="divide-y divide-[#333]"></tbody>
-                            </table>
-                        </div>
-
-                        <div class="border-gradient-gold rounded-xl p-3 shadow-sm space-y-3 bg-[#1e1e1e]">
-                            <div class="grid grid-cols-2 gap-3">
-                                <div><label class="block text-[10px] text-[#bf953f] font-bold mb-1">Diskon (Rp)</label><input type="number" id="diskonInvoice" value="0" oninput="hitungOtomatisInvoice()" class="w-full bg-[#111] border-gradient-gold-thin text-white rounded-lg p-2 text-xs outline-none focus:border-[#fcf6ba]"></div>
-                                <div><label class="block text-[10px] text-[#bf953f] font-bold mb-1">Biaya Kirim (Rp)</label><input type="number" id="biayaKirimInvoice" value="0" oninput="hitungOtomatisInvoice()" class="w-full bg-[#111] border-gradient-gold-thin text-white rounded-lg p-2 text-xs outline-none focus:border-[#fcf6ba]"></div>
-                            </div>
-                            <div class="grid grid-cols-2 gap-3">
-                                <div><label class="block text-[10px] text-[#bf953f] font-bold mb-1">Down Payment / DP (Rp)</label><input type="number" id="dpInvoice" value="0" oninput="hitungOtomatisInvoice()" class="w-full bg-[#111] border-gradient-gold-thin text-white rounded-lg p-2 text-xs outline-none focus:border-[#fcf6ba]"></div>
-                                <div><label class="block text-[10px] text-[#bf953f] font-bold mb-1">No Invoice (Bawaan)</label><input type="text" id="noInvoiceAuto" readonly class="w-full bg-[#111] text-gray-400 border border-[#333] rounded-lg p-2 text-xs outline-none cursor-not-allowed"></div>
-                            </div>
-                            
-                            <!-- Rincian Hitungan -->
-                            <div class="bg-[#111] p-3 rounded-xl border border-[#bf953f] space-y-2 text-xs shadow-inner">
-                                <div class="flex justify-between items-center"><span class="font-bold text-gray-400">Total Pesanan (Cup):</span><span id="totPesananCupText" class="font-black text-white">0 Cup</span></div>
-                                <div class="flex justify-between items-center border-t border-[#333] pt-2"><span class="font-bold text-gray-400">Sub Total:</span><span id="subTotalText" class="font-black text-white">Rp 0</span></div>
-                                <div class="flex justify-between items-center"><span class="font-bold text-amber-400">Diskon:</span><span id="diskonText" class="font-black text-amber-400">Rp 0</span></div>
-                                <div class="flex justify-between items-center"><span class="font-bold text-gray-400">Biaya Kirim:</span><span id="biayaKirimText" class="font-black text-white">-</span></div>
-                                <div class="flex justify-between items-center border-t border-[#333] pt-2"><span class="font-bold text-[#fcf6ba] uppercase">Total:</span><span id="grandTotalText" class="font-black text-[#fcf6ba]">Rp 0</span></div>
-                                <div class="flex justify-between items-center"><span class="font-bold text-[#f57c00]">Down Payment:</span><span id="dpText" class="font-black text-[#f57c00]">Rp 0</span></div>                                
-                                <div class="flex justify-between items-center border-t border-emerald-500/50 pt-2"><span class="font-bold text-emerald-400 uppercase text-[11px]">Sisa Tagihan:</span><span id="sisaTagihanText" class="font-black text-emerald-400 text-[13px] glow-emas">Rp 0 (Lunas)</span></div>
-                            </div>
-                            
-                            <div class="text-center py-1 text-xs font-bold text-emerald-400" id="statusSinkronisasiTextInvoice">🎯 STATUS INVOICE SELESAI</div>
-                            <button type="button" onclick="bukaPopupKonfirmasiSimpanInvoice()" class="w-full block bg-gradient-to-r from-[#bf953f] to-[#fbf5b7] text-[#111] font-black py-3 rounded-xl uppercase text-xs shadow-lg mt-4">Simpan Invoice Database</button>
                         </div>
                     </div>
                 </div>
@@ -419,7 +346,7 @@
                     </div>
                 </div>
             </section>
-
+                        
             <!-- ================= VIEW 5: PROFIL ================= -->
             <section id="view-profil" class="menu-view hidden w-full px-4 py-6 md:p-10">
                 <div class="card border-gradient-gold max-w-2xl mx-auto mb-6 bg-[#1e1e1e]">
@@ -454,7 +381,6 @@
             <button type="button" onclick="switchMenu('dashboard')" id="btn-menu-dashboard" class="flex-col items-center gap-1 text-gray-500 hover:text-[#fcf6ba] transition flex flex-1 w-full"><i class='bx bx-pie-chart-alt-2 text-lg drop-shadow'></i></span></button>
             <button type="button" onclick="switchMenu('stock')" id="btn-menu-stock" class="flex-col items-center gap-1 text-gray-500 hover:text-[#fcf6ba] transition flex flex-1 w-full"><i class='bx bx-box text-lg drop-shadow'></i></span></button>
             <button type="button" onclick="switchMenu('kasir')" id="btn-menu-kasir" class="flex-col items-center gap-1 text-gray-500 hover:text-[#fcf6ba] transition flex flex-1 w-full"><i class='bx bx-receipt text-lg drop-shadow'></i></span></button>
-            <button type="button" onclick="switchMenu('invoice')" id="btn-menu-invoice" class="flex-col items-center gap-1 text-gray-500 hover:text-[#fcf6ba] transition flex flex-1 w-full" style="display: none;"><i class='bx bx-file-blank text-lg drop-shadow'></i></button>
             <button type="button" onclick="switchMenu('buktistock')" id="btn-menu-buktistock" class="flex-col items-center gap-1 text-gray-500 hover:text-[#fcf6ba] transition flex flex-1 w-full"><i class='bx bx-images text-lg drop-shadow'></i></span></button>
             <button type="button" onclick="switchMenu('profil')" id="btn-menu-profil" class="flex-col items-center gap-1 text-gray-500 hover:text-[#fcf6ba] transition flex flex-1 w-full"><i class='bx bx-user-circle text-lg drop-shadow'></i></span></button>
         </nav>
@@ -484,6 +410,7 @@
         <div class="border-gradient-gold-thick bg-[#1e1e1e] w-full max-w-xs rounded-2xl p-6 space-y-4 shadow-2xl text-center">
             <h3 class="text-sm font-black text-[#fcf6ba] uppercase border-b border-[#333] pb-2">FOTO BUKTI STOCK</h3>
             <p class="text-gray-300 text-[10px]">Wajib unggah <b>minimal 2 foto</b> fisik stock.</p>
+            <!-- PERBAIKAN: Menambahkan 'multiple' agar bisa memilih lebih dari 1 foto jika via galeri -->
             <input type="file" id="inputFotoStock" accept="image/*" capture="environment" multiple class="hidden" onchange="previewStockImages(this)">
             <label for="inputFotoStock" class="block w-full bg-gradient-to-r from-[#bf953f] to-[#f57c00] text-[#111] font-bold py-3 rounded-lg text-xs cursor-pointer shadow-lg">📸 BUKA KAMERA / GALERI</label>
             <p id="teksJumlahFoto" class="text-[10px] text-red-400 font-bold">0 Foto Terkumpul (Min. 2)</p>
@@ -510,14 +437,14 @@
         <div class="border-gradient-gold-thick w-full max-w-xs rounded-2xl p-5 space-y-3 shadow-xl bg-[#1e1e1e]">
             <h3 class="text-center text-sm font-black text-[#fcf6ba] uppercase tracking-wider border-b border-gray-700 pb-2">APAKAH DATA SUDAH BENAR?</h3>
             <div class="space-y-2 text-xs text-gray-300">
-                <div class="flex justify-between"><span>Total Terjual (Cup):</span><span id="popTotalTerjual" class="font-bold text-white">0 Cup</span></div>
-                <div class="flex justify-between"><span>Minus + Hutang Baru:</span><span id="popMinusHutang" class="font-bold text-red-500">Rp 0</span></div>
-                <div class="flex justify-between"><span>Sisa Hutang:</span><span id="popSisaHutang" class="font-bold text-[#f57c00]">Rp 0</span></div>
                 <div class="flex justify-between"><span>Total Cash:</span><span id="popTotalTunai" class="font-bold text-white">Rp 0</span></div>
                 <div class="flex justify-between"><span>Total QRIS:</span><span id="popTotalQris" class="font-bold text-green-400">Rp 0</span></div>
+                <div class="flex justify-between"><span>Minus + Hutang Baru:</span><span id="popMinusHutang" class="font-bold text-red-500">Rp 0</span></div>
+                <div class="flex justify-between"><span>Sisa Hutang:</span><span id="popSisaHutang" class="font-bold text-[#f57c00]">Rp 0</span></div>
+                <div class="flex justify-between"><span>Total Terjual (Cup):</span><span id="popTotalTerjual" class="font-bold text-white">0 Cup</span></div>
                 <div class="flex justify-between"><span>Komisi Rider:</span><span id="popTotalKomisi" class="font-bold text-amber-500">Rp 0</span></div>
                 <div class="flex justify-between border-t border-gray-700 pt-2"><span class="text-gray-100 font-bold">SETOR TUNAI BERSIH:</span><span id="popSetoranBersih" class="font-black text-emerald-400 text-sm">Rp 0</span></div>
-            </div>            
+            </div>
             <div class="grid grid-cols-2 gap-2 pt-2">
                 <button type="button" onclick="document.getElementById('popupSimpan').classList.replace('flex','hidden')" class="bg-[#2a2a2a] border border-[#444] text-gray-400 font-bold py-2.5 rounded-xl text-xs uppercase hover:bg-[#333]">Revisi</button>
                 <button type="button" onclick="lanjutKeStruk()" class="bg-gradient-to-r from-[#bf953f] to-[#fbf5b7] text-[#111111] font-black py-2.5 rounded-xl text-xs uppercase shadow-lg">Lanjut</button>
@@ -530,7 +457,7 @@
         <div class="max-w-md mx-auto space-y-4">
             <div id="captureReceiptArea" class="bg-[#1e1e1e] p-4 rounded-xl border border-gradient-gold text-left space-y-3">
                 <div class="text-center py-2 border-b border-dashed border-[#444]">
-                    <h2 class="text-2xl font-black text-[#f97316]">SI FOUR AM</h2>
+                    <h2 class="text-2xl font-black text-[#fcf6ba]">SI FOUR AM</h2>
                     <p class="text-[9px] uppercase text-gray-400">Official Mobile Receipt</p>
                 </div>
                 <div class="text-xs space-y-1">
@@ -570,144 +497,9 @@
         </div>
     </div>
 
-<!-- ================= VIEW 7: PDF INVOICE RENDER (HIDDEN) ================= -->
-            <section id="view-invoice-receipt" class="menu-view hidden w-full p-4 relative" style="background: #ffffff;">
-                <div class="w-full max-w-2xl mx-auto flex justify-between mb-4">
-                    <button onclick="document.getElementById('view-invoice-receipt').classList.add('hidden'); switchMenu('invoice');" class="bg-gray-800 text-white px-4 py-2 rounded font-bold text-xs">Kembali</button>
-                    <button onclick="kirimWhatsAppInvoice()" class="bg-green-600 text-white px-4 py-2 rounded font-bold text-xs shadow-lg"><i class='bx bxl-whatsapp text-sm'></i> Kirim Ke WhatsApp</button>
-                </div>
-
-                <!-- Template Kertas PDF Invoice Luxury Gold x White -->
-                <div id="invoicePDFContainer" class="invoice-pdf-container mx-auto bg-white" style="width: 210mm; min-height: 297mm; color: #111111; font-family: Arial, sans-serif;">
-                    <!-- Border Lapis Dalam: Gradient Gold di background putih -->
-                    <div style="border: 3px solid transparent; border-image: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c) 1; padding: 30px; height: 100%; background-color: #ffffff;">
-                        <!-- Header -->
-                        <div style="display: flex; justify-content: space-between; align-items: flex-start; border-bottom: 2px solid #bf953f; padding-bottom: 15px; margin-bottom: 20px;">
-                            <div style="width: 150px;">
-                                <!-- Menggunakan proxy jika terjadi CORS / directly dari google drive. Ditambah crossorigin="anonymous" -->
-                                <img src="https://ibb.co.com/yFrVF2gm" crossorigin="anonymous" alt="Logo" style="width: 100%; max-height: 80px; object-fit: contain;">                            </div>
-                            <div style="text-align: right; color: #111111; max-width: 60%;">
-                                <h1 style="font-family: serif; color: #111111; font-size: 24px; font-weight: bold; margin: 0; text-transform: uppercase;">SI FOUR A.M</h1>
-                                <p style="font-size: 11px; margin: 5px 0 0; color: #333; line-height: 1.4;">Jl. Panjang Cidodol No. 30 B, Rt. 007 / Rw. 008<br>Cipulir, Kebayoran Lama, Jakarta Selatan, 12230<br>Email: sifouram.kopi@gmail.com | Whatsapp: +6281283578212</p>
-                            </div>
-                        </div>
-
-                        <!-- Judul INVOICE -->
-                        <div style="text-align: center; margin-bottom: 25px;">
-                            <h2 style="font-family: serif; color: #f97316; font-size: 28px; letter-spacing: 5px; margin: 0; font-weight: bold;">INVOICE</h2>
-                        </div>
-
-                        <!-- Data Pelanggan -->
-                        <table style="width: 100%; margin-bottom: 25px; border-collapse: collapse; font-size: 12px; color: #111111;">
-                            <thead style="background: linear-gradient(to right, #bf953f, #aa771c); color: #fff;">
-                                <tr><th colspan="2" style="padding: 8px; text-align: left; border: 1px solid #bf953f;">INFORMASI TAGIHAN</th></tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td style="padding: 8px; border: 1px solid #bf953f; width: 50%;">
-                                        <div style="margin-bottom: 4px;"><strong style="color: #f97316;">Nama Customer:</strong> <span id="pdfNamaCustomer"></span></div>
-                                        <div><strong style="color: #f97316;">No Telp:</strong> <span id="pdfNoTelp"></span></div>
-                                    </td>
-                                    <td style="padding: 8px; border: 1px solid #bf953f; width: 50%;">
-                                        <div style="margin-bottom: 4px;"><strong style="color: #f97316;">Nomor Invoice:</strong> <span id="pdfNoInvoice"></span></div>
-                                        <div><strong style="color: #f97316;">Tanggal:</strong> <span id="pdfTanggal"></span></div>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                        <!-- Tabel Utama -->
-                        <table style="width: 100%; border-collapse: collapse; font-size: 12px; color: #111111; margin-bottom: 25px;">
-                            <thead style="background: linear-gradient(to right, #bf953f, #aa771c); color: #fff;">
-                                <tr>
-                                    <th style="padding: 10px 5px; border: 1px solid #bf953f; text-align: center; width: 5%;">No</th>
-                                    <th style="padding: 10px 5px; border: 1px solid #bf953f; text-align: left;">Nama Product</th>
-                                    <th style="padding: 10px 5px; border: 1px solid #bf953f; text-align: center; width: 15%;">Qty (Pcs)</th>
-                                    <th style="padding: 10px 5px; border: 1px solid #bf953f; text-align: right; width: 20%;">Harga (Pcs)</th>
-                                    <th style="padding: 10px 5px; border: 1px solid #bf953f; text-align: right; width: 25%;">Total Harga</th>
-                                </tr>
-                            </thead>
-                            <tbody id="pdfTableBody" style="color: #111111;">
-                                <!-- JS Injection -->
-                            </tbody>
-                        </table>
-
-                        <!-- Bagian Bawah -->
-                        <div style="display: flex; justify-content: space-between; font-size: 12px;">
-                            <!-- Kiri: Info Bank & TTD -->
-                            <div style="width: 50%; color: #333;">
-                                <strong style="color: #f97316; font-size: 14px;">Ketentuan Pembayaran:</strong><br>
-                                <p style="margin: 5px 0 15px;">Waktu proses terhitung sejak DP diterima dan dinyatakan ACC. Waktu produksi h-1 pengiriman. Ketentuan pembayaran yaitu dengan metode DP 50% dan Pelunasan 50%.<br> Pembayaran ditransfer ke rekening berikut:<br>
-                                <strong style="color: #111111;">Bank BCA - 2480-731-037</strong> a.n. Muhammad Zulfikar</p>
-                                
-                                <div style="margin-top: 40px; text-align: center; width: 150px;">
-                                    <img src="https://drive.google.com/uc?export=view&id=1plWjUIuibHol4kwdAZEPTgu02_BcHeFc" crossorigin="anonymous" style="height: 60px; margin-bottom: 5px; object-fit: contain;">                                    <div style="border-bottom: 1px solid #bf953f; padding-top: 5px; color: #111111; font-weight: bold;">M. Zulfikar</div>
-                                </div>
-                            </div>
-
-                            <!-- Kanan: Ringkasan Hitungan -->
-                            <div style="width: 50%;">
-                                <table style="width: 100%; border-collapse: collapse; font-size: 13px; color: #111111;">
-                                    <tr>
-                                        <td style="padding: 5px; text-align: right; font-weight: bold;">Sub Total:</td>
-                                        <td style="padding: 5px; text-align: right; border-bottom: 1px solid #ccc;" id="pdfSubTotal">Rp 0</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding: 5px; text-align: right; font-weight: bold;">Diskon:</td>
-                                        <td style="padding: 5px; text-align: right; border-bottom: 1px solid #ccc; color: #d4af37;" id="pdfDiskon">Rp 0</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding: 5px; text-align: right; font-weight: bold;">Biaya Kirim:</td>
-                                        <td style="padding: 5px; text-align: right; border-bottom: 1px solid #ccc;" id="pdfBiayaKirim">Rp 0</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding: 5px; text-align: right; font-weight: bold; color: #f97316;">Total:</td>
-                                        <td style="padding: 5px; text-align: right; font-weight: bold; color: #f97316; border-bottom: 1px solid #ccc;" id="pdfTotal">Rp 0</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding: 5px; text-align: right; font-weight: bold;">Down Payment (DP):</td>
-                                        <td style="padding: 5px; text-align: right; border-bottom: 1px solid #ccc;" id="pdfDp">Rp 0</td>
-                                    </tr>
-                                    <tr>
-                                        <td style="padding: 10px 5px; text-align: right; font-size: 16px; font-weight: bold; color: #111111;">Sisa Tagihan:</td>
-                                        <td style="padding: 10px 5px; text-align: right; font-size: 16px; font-weight: bold; color: #111111;" id="pdfSisaTagihan">Rp 0</td>
-                                    </tr>
-                                    <tr>
-                                        <td colspan="2" style="text-align: right; padding-top: 5px;"><span id="pdfStatusLunas" style="background-color: #f97316; border: 1px solid #f97316; padding: 3px 10px; border-radius: 4px; font-size: 11px; font-weight: bold; color: #ffffff;">LUNAS</span></td>
-                                    </tr>
-                                </table>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <!-- Popup Konfirmasi Simpan INVOICE -->
-    <div id="popupSimpanInvoice" class="fixed inset-0 z-[200] flex items-center justify-center bg-black/90 px-4 hidden backdrop-blur-sm">
-        <div class="border-gradient-gold-thick w-full max-w-xs rounded-2xl p-5 space-y-3 shadow-xl bg-[#1e1e1e]">
-            <h3 class="text-center text-sm font-black text-[#fcf6ba] uppercase tracking-wider border-b border-gray-700 pb-2">REVIEW INVOICE</h3>
-            <div class="space-y-2 text-xs text-gray-300">
-                <div class="flex justify-between"><span>Total Pesanan Cup:</span><span id="popInvCup" class="font-bold text-white">0 Cup</span></div>
-                <div class="flex justify-between"><span>Sub Total:</span><span id="popInvSubTotal" class="font-bold text-white">Rp 0</span></div>
-                <div class="flex justify-between"><span>Diskon:</span><span id="popInvDiskon" class="font-bold text-amber-400">Rp 0</span></div>
-                <div class="flex justify-between"><span>Biaya Kirim:</span><span id="popInvKirim" class="font-bold text-white">Rp 0</span></div>
-                <div class="flex justify-between"><span>Total:</span><span id="popInvTotal" class="font-bold text-[#fcf6ba]">Rp 0</span></div>
-                <div class="flex justify-between"><span>Down Payment:</span><span id="popInvDp" class="font-bold text-[#f57c00]">Rp 0</span></div>
-                <div class="flex justify-between border-t border-gray-700 pt-2"><span class="text-gray-100 font-bold">SISA TAGIHAN:</span><span id="popInvSisa" class="font-black text-emerald-400 text-sm">Rp 0</span></div>
-            </div>            
-            <div class="grid grid-cols-2 gap-2 pt-2">
-                <button type="button" onclick="document.getElementById('popupSimpanInvoice').classList.replace('flex','hidden')" class="bg-[#2a2a2a] border border-[#444] text-gray-400 font-bold py-2.5 rounded-xl text-xs uppercase hover:bg-[#333]">Revisi</button>
-                <button type="button" onclick="lanjutKeStrukInvoice()" class="bg-gradient-to-r from-[#bf953f] to-[#fbf5b7] text-[#111111] font-black py-2.5 rounded-xl text-xs uppercase shadow-lg">Ya, Simpan</button>
-            </div>
-        </div>
-    </div>
-
     <!-- ================= LOGIKA JAVASCRIPT GLOBAL ================= -->
     <script>
-        const APP_URL = "https://script.google.com/macros/s/AKfycbzMC56xQ8ipswnuMkepMy2TXaBq_j6C6ltUyg-1PAZ2-9iqNwNfzdGbc7i-TdcJTeHJ/exec"; 
-        const URL_API = "https://script.google.com/macros/s/AKfycbwRIZNB29ELh93g1qL5rtMxpnKLxBWG4T4cyyB9WiR-H0QJ7jI2w5lESRIH43WMV-vm/exec";
+        const APP_URL = "https://script.google.com/macros/s/AKfycbyrdgonYzXFpFi1oaNy11yUMUx1Eg-57looNrNeFGT-GvaHQqBM-wP38SwvIsSRQ3Qe/exec"; 
 
         const appAccounts = {
             "zulfikar": { pass: "jkt234", role: "Super Admin", name: "Muhammad Zulfikar", wa: "0812-3456-7890" },
@@ -720,25 +512,17 @@
             "adi": { pass: "0000", role: "Rider", name: "ADI" },
             "RICKY": { pass: "1234", role: "Rider", name: "RICKY" },
             "JUNAEDI": { pass: "1234", role: "Rider", name: "JUNAEDI" },
-            "RAUL": { pass: "raul123", role: "Rider", name: "RAUL" },
+            "RAUL": { pass: "RAUL123", role: "Rider", name: "RAUL" },
             "RIJAL": { pass: "4321", role: "Rider", name: "RIJAL" },
-            "zafira": { pass: "1778", role: "Rider", name: "ABAY" }
+            "ABAY": { pass: "1778", role: "Rider", name: "ABAY" }
         };
 
         const daftarProdukKasir = [ 
-            { nama: "SI AMERICANO", harga: 8000, stok: 5 }, { nama: "SI KOPSU AREN", harga: 10000, stok: 15 }, 
+            { nama: "SI AMERICANO", harga: 8000, stok: 5 }, { nama: "SI KOPSU AREN", harga: 9000, stok: 15 }, 
             { nama: "SI CREAMY LATTE", harga: 12000, stok: 5 }, { nama: "SI VANILLA LATTE", harga: 12000, stok: 5 }, 
             { nama: "SI SALTED CARAMEL", harga: 12000, stok: 5 }, { nama: "SI BUTTERSCOTCH", harga: 12000, stok: 5 }, 
             { nama: "SI CHOCOLATE", fontEmas: true, harga: 12000, stok: 5 }, { nama: "SI MATCHA", harga: 12000, stok: 5 }, 
             { nama: "SI TEH MANIS", harga: 5000, stok: 5 } 
-        ];
-
-        const daftarProdukInvoice = [ 
-            { nama: "SI AMERICANO", fontEmas: true, harga: 8000}, { nama: "SI KOPSU AREN", fontEmas: true, harga: 10000}, 
-            { nama: "SI CREAMY LATTE", fontEmas: true, harga: 12000}, { nama: "SI VANILLA LATTE", fontEmas: true, harga: 12000}, 
-            { nama: "SI SALTED CARAMEL", fontEmas: true, harga: 12000}, { nama: "SI BUTTERSCOTCH", fontEmas: true, harga: 12000}, 
-            { nama: "SI CHOCOLATE", fontEmas: true, harga: 12000}, { nama: "SI MATCHA", fontEmas: true, harga: 12000}, 
-            { nama: "SI TEH MANIS", fontEmas: true, harga: 5000} 
         ];
 
         const namaSingkatProduk = {
@@ -751,8 +535,6 @@
         let stockImagesBase64 = [];
         let chartInstRider, chartInstMenu, chartInstMasa, chartInstHarian;
         let currentBundleConfig = {}; 
-        let customerDataDB = []; 
-        let globalInvoiceNumber = "";
 
         function ekstrakAngkaGlobal(str) { 
             if(typeof str === 'number') return str; 
@@ -761,17 +543,11 @@
         function formatRupiahGlobal(angka) { return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', minimumFractionDigits: 0 }).format(angka); }
         function buatOpsiMaksimalKasir(max, selectedVal = 0) { let opt = ""; for (let i = 0; i <= max; i++) opt += `<option value="${i}" ${i === selectedVal ? 'selected' : ''}>${i}</option>`; return opt; }
 
-         window.onload = () => {
+        window.onload = () => {
             const session = localStorage.getItem('siFourUser');
             if(session) { currentUser = JSON.parse(session); masukKeApp(); } 
             else { document.getElementById('loginScreenRoot').classList.remove('hidden'); }
-            
-            if(typeof renderTabelAkun === 'function') renderTabelAkun(); 
-            if(typeof renderTabelStock === 'function') renderTabelStock(); 
-            if(typeof renderTabelVarianKasir === 'function') renderTabelVarianKasir(); 
-            if(typeof renderTabelInvoice === 'function') renderTabelInvoice(); 
-            if(typeof aturTanggalBuktiStock === 'function') aturTanggalBuktiStock(); 
-            aturTanggalDashboard();
+            renderTabelAkun(); renderTabelStock(); renderTabelVarianKasir(); aturTanggalBuktiStock(); aturTanggalDashboard();
         };
 
         function prosesLoginApp() {
@@ -799,7 +575,6 @@
                 document.getElementById('btn-menu-dashboard').style.display = 'flex';
                 document.getElementById('btn-menu-stock').style.display = (r === 'Super Admin' || r === 'Tim Bar') ? 'flex' : 'none';
                 document.getElementById('btn-menu-kasir').style.display = (r === 'Super Admin' || r === 'Tim Bar') ? 'flex' : 'none';
-                document.getElementById('btn-menu-invoice').style.display = (r === 'Super Admin') ? 'flex' : 'none';
                 document.getElementById('btn-menu-buktistock').style.display = 'flex';
                 document.getElementById('btn-menu-profil').style.display = 'flex';
                 
@@ -812,7 +587,6 @@
                     };
                     setAutoPic(document.getElementById('picPenerimaStock'));
                     setAutoPic(document.getElementById('picPenerimaKasir'));
-                    setAutoPic(document.getElementById('picPenerimaInvoice'));
                 }
 
                 const riderSelect = document.getElementById('riderSelectDesktop');
@@ -825,11 +599,6 @@
             }, 300);
         }
 
-        /* 
-         * ==============================================
-         * PERBAIKAN 1: Penggabungan Fungsi switchMenu()
-         * ==============================================
-         */
         function switchMenu(menuId) {
             document.querySelectorAll('.menu-view').forEach(el => el.classList.add('hidden'));
             ['dashboard','stock','kasir','buktistock','profil'].forEach(m => {
@@ -841,55 +610,14 @@
             const activeBtn = document.getElementById(`btn-menu-${menuId}`);
             if(activeBtn) { activeBtn.classList.remove('text-gray-500'); activeBtn.classList.add('text-[#fcf6ba]'); }
             
-            let titles = { 'dashboard':'DASHBOARD RIDER', 'stock':'STOCK', 'kasir':'SETORAN', 'invoice':'INVOICE', 'buktistock':'BUKTI STOCK', 'profil':'PROFIL' };
-            if (document.getElementById('mobileHeaderTitle')) {
-                document.getElementById('mobileHeaderTitle').innerText = titles[menuId];
-            }
+            let titles = { 'dashboard':'DASHBOARD RIDER', 'stock':'STOCK', 'kasir':'SETORAN', 'buktistock':'BUKTI STOCK', 'profil':'PROFIL' };
+            document.getElementById('mobileHeaderTitle').innerText = titles[menuId];
             
-            if(menuId === 'stock' || menuId === 'kasir' || menuId === 'invoice') {
+            if(menuId === 'stock' || menuId === 'kasir') {
                 let td = new Date().toISOString().split('T')[0];
-                if(document.getElementById("tanggalKasir") && !document.getElementById("tanggalKasir").value) document.getElementById("tanggalKasir").value = td;
-                
-                // Set otomatis ke hari ini saat menu invoice dibuka namun tetap bisa diketik/input manual.
-                if(document.getElementById("tanggalInvoice")) document.getElementById("tanggalInvoice").value = td;
-                
-                if (document.getElementById("tanggalStock") && !document.getElementById("tanggalStock").value) {
-                    document.getElementById("tanggalStock").value = td;
-                }
+                document.getElementById("tanggalKasir").value = td;
+                document.getElementById("tanggalStock").value = td;
             }
-
-            if(menuId === 'invoice') {
-                if(typeof renderTabelInvoice === 'function') renderTabelInvoice();
-                fetchCustomerData(); // Memanggil fungsi yang sudah dibungkus try..catch
-                if(typeof generateNoInvoice === 'function') generateNoInvoice();
-            }
-        }
-
-        function formatRupiahGlobal(angka) {
-            return "Rp " + angka.toLocaleString('id-ID');
-        }
-
-        async function fetchCustomerData() {
-            try {
-                let res = await fetch(`${APP_URL}?action=getCustomer`);
-                if(res.ok) {
-                    let data = await res.json();
-                    customerDataDB = data.data || [];
-                }
-            } catch (error) {
-                console.warn("Peringatan: Gagal muat data customer dari database.", error);
-                customerDataDB = []; 
-            }
-        }
-
-        function formatTanggalInvoice() {
-            const hariList = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
-            const tgl = document.getElementById('tanggalInvoice').value;
-            if(!tgl) return "";
-            const d = new Date(tgl);
-            const namaHari = hariList[d.getDay()];
-            const tglString = ("0" + d.getDate()).slice(-2) + "-" + ("0" + (d.getMonth() + 1)).slice(-2) + "-" + d.getFullYear();
-            return `${namaHari}, ${tglString}`;
         }
 
         function aturTanggalDashboard() {
@@ -989,17 +717,30 @@
 
                 let targetGap = activeTarget - totPenjualan;
                 if (targetGap > 0) {
-                    document.getElementById('valTargetDekat').innerText = `- ${targetGap} Cup`;
+                    document.getElementById('valTargetDekat').innerText = `(-) ${targetGap} Cup`;
                 } else {
                     let kelebihan = totPenjualan - activeTarget;
                     document.getElementById('valTargetDekat').innerText = `${totPenjualan} - ${activeTarget} = +${kelebihan} (Tercapai!)`;
                 }
 
-// Hitung Masa Dagang terlebih dahulu agar bisa digunakan untuk kalkulasi bonus
+                let totKomisi = myUtama.reduce((sum, item) => sum + (parseInt(item.komisi)||0), 0);
+                document.getElementById('valKomisi').innerText = formatRupiahGlobal(totKomisi);
+
+                let totBonusTambahan = 0;
+                myUtama.forEach(x => {
+                    let dName = x.driver.toUpperCase();
+                    if (!dName.includes("RICKY") && !dName.includes("ADMIN") && !dName.includes("ZULFIKAR") && !dName.includes("SANDITA")) {
+                        totBonusTambahan += 24000;
+                    }
+                });
+                let grandKomisiBonus = totKomisi + totBonusTambahan;
+                document.getElementById('valKomisiBonus').innerText = formatRupiahGlobal(grandKomisiBonus);
+
+                // Hitung Masa Dagang
                 let mapAbsen = {};
                 filteredDetail.forEach(x => {
                     if (parseInt(x.stok_awal) > 0 || parseInt(x.total_terjual) > 0) {
-                        let key = x.driver.toUpperCase().trim() + "|" + x.tanggal;
+                        let key = x.driver + "|" + x.tanggal;
                         mapAbsen[key] = true;
                     }
                 });
@@ -1015,60 +756,6 @@
                 if (rider === "ADMIN") {
                     document.getElementById('valMasaDagang').innerText = "Admin View";
                 } else {
-                    let myHari = sortedAbsen.find(x => x.rName === rider.toUpperCase().trim().split(' ')[0]);
-                    document.getElementById('valMasaDagang').innerText = `${myHari ? myHari.val : 0}/25 Hari`;
-                }
-
-                // --- KALKULASI KOMISI & BONUS BARU ---
-                let totKomisi = myUtama.reduce((sum, item) => sum + (parseInt(item.komisi)||0), 0);
-                document.getElementById('valKomisi').innerText = formatRupiahGlobal(totKomisi);
-
-                let grandKomisiBonus = totKomisi;
-                
-                // Menghitung total cup penjualan per rider
-                let cupPerRider = {};
-                myUtama.forEach(x => {
-                    let dName = x.driver.toUpperCase().trim();
-                    cupPerRider[dName] = (cupPerRider[dName] || 0) + (parseInt(x.volume) || 0);
-                });
-
-                // Mendapatkan daftar rider unik yang memiliki data di periode ini
-                let unikRiders = [...new Set(myUtama.map(x => x.driver.toUpperCase().trim()))];
-
-                unikRiders.forEach(drv => {
-                    // Abaikan admin dari perhitungan bonus
-                    if (!drv.includes("ADMIN") && !drv.includes("ZULFIKAR") && !drv.includes("SANDITA")) {
-                        let hariAbsen = hitungAbsenRider[drv] || 0;
-                        let cup = cupPerRider[drv] || 0;
-                        let jumlahHariSetoran = myUtama.filter(x => x.driver.toUpperCase().trim() === drv).length;
-
-                        // 1. Bonus 24.000 perhari (kecuali RICKY AKBAR)
-                        if (!drv.includes("RICKY AKBAR")) {
-                            grandKomisiBonus += (jumlahHariSetoran * 24000);
-                        }
-
-                        // 2. Bonus 150.000 jika masa dagang mencapai 25 hari
-                        if (hariAbsen >= 25) {
-                            grandKomisiBonus += 150000;
-                        }
-
-                        // 3. Bonus Target Kategori (1, 2, 3)
-                        if (cup >= 1500) {
-                            grandKomisiBonus += 675000;
-                        } else if (cup >= 1200) {
-                            grandKomisiBonus += 420000;
-                        } else if (cup >= 900) {
-                            grandKomisiBonus += 270000;
-                        }
-                    }
-                });
-
-                document.getElementById('valKomisiBonus').innerText = formatRupiahGlobal(grandKomisiBonus);
-                // --- END KALKULASI KOMISI & BONUS ---
-
-                if (rider === "ADMIN") {
-                    document.getElementById('valMasaDagang').innerText = "Admin View";
-                } else {
                     let myHari = sortedAbsen.find(x => x.rName === rider.split(' ')[0]);
                     document.getElementById('valMasaDagang').innerText = `${myHari ? myHari.val : 0}/25 Hari`;
                 }
@@ -1080,7 +767,7 @@
                 if(rider === "ADMIN") { 
                     sisaHutang = dbHutang.reduce((sum, item) => sum + (parseInt(item.nominal)||0), 0); 
                 } else { 
-                    let h = dbHutang.find(x => x.driver === rider); 
+                    let h = dbHutang.find(x => x.driver.toUpperCase().trim() === rider.toUpperCase().trim()); 
                     if(h) sisaHutang = parseInt(h.nominal)||0; 
                 }
                 document.getElementById('valHutang').innerText = formatRupiahGlobal(sisaHutang);
@@ -1144,9 +831,9 @@
                 let sortedRidersForChart = Object.keys(mapRiderData).map(k=>({rName: k.split(' ')[0], val: mapRiderData[k]})).sort((a,b)=>b.val - a.val);
 
                 if(chartInstRider) chartInstRider.destroy();
-                chartInstRider = new Chart(document.getElementById('chartRider').getContext('2d'), {
-                    type: 'bar', data: { labels: sortedRidersForChart.map(x=>x.rName), datasets: [{ label: 'Total Cup', data: sortedRidersForChart.map(x=>x.val), backgroundColor: '#bf953f', borderRadius: 4 }] },
-                    options: { responsive: true, maintainAspectRatio: false, plugins: { datalabels: { color: '#fff', anchor: 'end', align: 'top', font: {weight: 'bold', size: 8} }, legend: {display: false} }, scales: { y: { beginAtZero: true, grid: { color: '#333' } }, x: { grid: { display: false } } } }
+                chartInstRider = new Chart(document.getElementById('chartRider'), {
+                    type: 'bar', data: { labels: sortedRidersForChart.map(x=>x.rName), datasets: [{ label: 'Total Cup', data: sortedRidersForChart.map(x=>x.val), backgroundColor: '#b38728', borderRadius: 4 }] },
+                    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: {display: false}, datalabels: { display: true, color: '#ffffff', font: {weight: 'bold'} } } }
                 });
 
                 // Chart: Produk Terlaris
@@ -1161,14 +848,14 @@
                 let sortedProduk = Object.keys(mapProduk).map(p=>({pName:p, val:mapProduk[p]})).sort((a,b)=>b.val - a.val);
 
                 if(chartInstMenu) chartInstMenu.destroy();
-                chartInstMenu = new Chart(document.getElementById('chartMenu').getContext('2d'), {
-                    type: 'doughnut', data: { labels: sortedProduk.map(x=>x.pName), datasets: [{ label: 'Total Terjual', data: sortedProduk.map(x=>x.val), backgroundColor: ['#bf953f','#f57c00','#d4af37','#fcf6ba','#1e1e1e','#444','#666','#888','#aaa'], borderRadius: 4 }] },
-                    options: { responsive: true, maintainAspectRatio: false, plugins: { datalabels: { color: '#fff', font: {weight: 'bold', size: 9}, formatter: (value, ctx) => value > 0 ? value : '' }, legend: { position: 'right', labels: {boxWidth: 8, font: {size: 8}} } }, cutout: '60%' }
+                chartInstMenu = new Chart(document.getElementById('chartMenu'), {
+                    type: 'bar', data: { labels: sortedProduk.map(x=>x.pName), datasets: [{ label: 'Total Terjual', data: sortedProduk.map(x=>x.val), backgroundColor: '#f97316', borderRadius: 4 }] },
+                    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: {display: false}, datalabels: { display: true, color: '#ffffff', font: {weight: 'bold'} } } }
                 });
 
                 // Chart: Masa Dagang (Hari) Per Rider
                 if(chartInstMasa) chartInstMasa.destroy();
-                chartInstMasa = new Chart(document.getElementById('chartMasa').getContext('2d'), {
+                chartInstMasa = new Chart(document.getElementById('chartMasa'), {
                     type: 'bar',
                     data: { 
                         labels: sortedAbsen.map(x=>x.rName), 
@@ -1184,9 +871,10 @@
                         maintainAspectRatio: false, 
                         plugins: { 
                             legend: {display: false}, 
-                            datalabels: { display: true, color: '#fff', anchor: 'end', align: 'right', font: {weight: 'bold', size: 9} }, legend: {display: false} }, scales: { x: { beginAtZero: true, max: 31, grid: { color: '#333' } }, y: { grid: { display: false } } } }
-            });
-
+                            datalabels: { display: true, color: '#ffffff', font: {weight: 'bold'} } 
+                        } 
+                    }
+                });
 
                 // Chart: Grafik Penjualan Harian
                 let mapHarian = {};
@@ -1195,18 +883,18 @@
                 });
                 let sortedHarian = Object.keys(mapHarian)
                     .sort((a,b) => new Date(a) - new Date(b))
-                    .map(t => ({ tgl: t.substring(5), val: mapHarian[t] })); // Munculin DD-mm-YY
+                    .map(t => ({ tgl: t.substring(5), val: mapHarian[t] })); // Munculin MM-DD
 
                 if(chartInstHarian) chartInstHarian.destroy();
-                chartInstHarian = new Chart(document.getElementById('chartHarian').getContext('2d'), {
+                chartInstHarian = new Chart(document.getElementById('chartHarian'), {
                     type: 'line',
                     data: { 
                         labels: sortedHarian.map(x=>x.tgl), 
                         datasets: [{ 
                             label: 'Total Penjualan (Cup)', 
                             data: sortedHarian.map(x=>x.val), 
-                            borderColor: '#fcf6ba', 
-                            backgroundColor: 'rgba(252,246,186,0.2)', 
+                            borderColor: '#d4af37', 
+                            backgroundColor: 'rgba(249, 115, 22, 0.2)', 
                             fill: true, 
                             tension: 0.3 
                         }] 
@@ -1218,7 +906,10 @@
                             legend: {display: false}, 
                             datalabels: { display: true, color: '#ffffff', font: {weight: 'bold'}, align: 'top' } 
                         },
-                        scales: { y: { beginAtZero: true, grid: { color: '#333' } }, x: { grid: { display: false } } } }
+                        scales: {
+                            y: { beginAtZero: true }
+                        }
+                    }
                 });
 
                 document.getElementById('dashboardContent').classList.remove('hidden');
@@ -1237,10 +928,10 @@
             daftarProdukKasir.forEach((p, i) => {
                 const maxD = p.nama === "SI KOPSU AREN" ? 50 : 30;
                 tbody.innerHTML += `<tr class="border-b border-[#333]">
-                    <td class="py-2 px-1 text-gold-sifour text-[9px] font-bold">${p.nama}</td>
-                    <td class="py-2 text-center"><select id="sAwal-${i}" onchange="hitTotStock()" class="w-10 bg-[#111] border border-[#bf953f] text-gold-sifour rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(maxD, p.stok)}</select></td>
+                    <td class="py-2 px-1 text-white text-[9px] font-bold">${p.nama}</td>
+                    <td class="py-2 text-center"><select id="sAwal-${i}" onchange="hitTotStock()" class="w-10 bg-[#111] border border-[#bf953f] text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(maxD, p.stok)}</select></td>
                     <td class="py-2 text-center"><select id="bAwal-${i}" onchange="hitTotStock()" class="w-10 bg-[#111] border border-[#bf953f] text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(5, 0)}</select></td>
-                    <td class="py-2 text-center text-[#f97316] font-black text-[10px]" id="tAwal-${i}">${p.stok}</td>
+                    <td class="py-2 text-center text-[#ffb74d] font-black text-[10px]" id="tAwal-${i}">${p.stok}</td>
                 </tr>`;
             }); hitTotStock();
         }
@@ -1259,7 +950,7 @@
             daftarProdukKasir.forEach((p, i) => {
                 const maxD = p.nama === "SI KOPSU AREN" ? 50 : 30;
                 tbody.innerHTML += `<tr class="border-b border-[#333]">
-                    <td class="py-2 px-1 text-orange-sifour text-[9px] font-bold">${p.nama}</td>
+                    <td class="py-2 px-1 text-gold-sifour text-[9px] font-bold">${p.nama}</td>
                     <td class="py-2 text-center"><select id="kS-${i}" onchange="hitungOtomatisKasir()" class="w-10 bg-[#111] border border-[#bf953f] text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(maxD, p.stok)}</select></td>
                     <td class="py-2 text-center"><select id="kB-${i}" onchange="hitungOtomatisKasir()" class="w-10 bg-[#111] border border-[#bf953f] text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(5, 0)}</select></td>
                     <td class="py-2 text-center"><select id="kSi-${i}" onchange="hitungOtomatisKasir()" class="w-10 bg-[#111] border border-[#bf953f] text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(maxD, 0)}</select></td>
@@ -1272,7 +963,7 @@
 
             // MENU BUNDLING BARU
             tbody.innerHTML += `<tr class="border-b border-[#444] bg-[#221c11]">
-                <td class="py-2 px-1 text-orange-400 text-[9px] font-bold">🎁 BUNDLING 1 (Pilih 4)</td>
+                <td class="py-2 px-1 text-orange-sifour text-[9px] font-bold">🎁 BUNDLING 1 (Pilih 4)</td>
                 <td class="py-2 text-center text-gray-500 text-[9px]" colspan="3">Diskon Rp 45.000</td>
                 <td class="py-2 text-center"><select id="bundle1-T" onchange="triggerBundlePopup(1, 'T')" class="w-10 bg-[#111] border border-orange-500 text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(10, 0)}</select></td>
                 <td class="py-2 text-center"><select id="bundle1-Q" onchange="triggerBundlePopup(1, 'Q')" class="w-10 bg-[#111] border border-orange-500 text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(10, 0)}</select></td>
@@ -1281,7 +972,7 @@
             </tr>`;
             
             tbody.innerHTML += `<tr class="border-b border-[#444] bg-[#221c11]">
-                <td class="py-2 px-1 text-orange-400 text-[9px] font-bold">🎁 BUNDLING 2 (Pilih 10)</td>
+                <td class="py-2 px-1 text-orange-sifour text-[9px] font-bold">🎁 BUNDLING 2 (Pilih 10)</td>
                 <td class="py-2 text-center text-gray-500 text-[9px]" colspan="3">Diskon Rp 110.000</td>
                 <td class="py-2 text-center"><select id="bundle2-T" onchange="triggerBundlePopup(2, 'T')" class="w-10 bg-[#111] border border-orange-500 text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(10, 0)}</select></td>
                 <td class="py-2 text-center"><select id="bundle2-Q" onchange="triggerBundlePopup(2, 'Q')" class="w-10 bg-[#111] border border-orange-500 text-white rounded text-[10px] p-1 text-center">${buatOpsiMaksimalKasir(10, 0)}</select></td>
@@ -1529,7 +1220,7 @@
                 if (tot > 0 || sVal > 0 || wVal > 0) {
                     lH += `<div class="py-1 flex justify-between border-b border-[#222]">
                         <span>${p.nama} (${tot} Pcs)</span>
-                        <span class="text-gray-400"> ST:${sVal} | S:${siVal} | T:${tVal} | Q:${qVal} | W:${wVal}</span>
+                        <span class="text-gray-400">T:${tVal} | Q:${qVal} | W:${wVal}</span>
                     </div>`;
                 }
             });
@@ -1596,7 +1287,7 @@
                 motivasi = "Tetap semangat! Mari hajar rute besok dengan energi penuh! 💪🔥"; 
             }
 
-            const msg = `*STRUK REKAP SI FOUR AM*\n----------------------------------\n` +
+            const msg = `*STRUK REKAP REVENUE SI FOUR AM*\n----------------------------------\n` +
                         `👤 *Rider:* ${drv}\n` +
                         `👥 *PIC:* ${pic}\n` +
                         `📅 *Waktu:* ${tgl}\n` +
@@ -1817,205 +1508,6 @@
             stockImagesBase64.splice(index, 1);
             renderPreviewStock();
         }
-
-        function generateNoInvoice() {
-            const date = new Date();
-            const ddmmyy = ("0" + date.getDate()).slice(-2) + ("0" + (date.getMonth() + 1)).slice(-2) + String(date.getFullYear()).slice(-2);
-            const urut = String(Math.floor(Math.random() * 900) + 100);
-            globalInvoiceNumber = `SI-51443${ddmmyy}-${urut}`;
-            document.getElementById('noInvoiceAuto').value = globalInvoiceNumber;
-        }
-
-
-        // RENDER TABEL INVOICE (HANYA QTY & TAMBAH)
-        function buatOpsiMaksimalKasir(max) {
-            let html = ""; for(let i=0; i<=max; i++) html += `<option value="${i}">${i}</option>`; return html;
-        }
-
-        function renderTabelInvoice() {
-            let html = "";
-            daftarProdukInvoice.forEach((p, idx) => {
-                html += `<tr class="border-b border-[#333] hover:bg-[#1e1e1e]">
-                    <td class="py-2 px-1 text-[10px] font-bold text-[#fcf6ba]">${p.nama}</td>
-                    <td class="py-2 text-center"><select id="invQty_${idx}" onchange="hitungOtomatisInvoice()" class="bg-[#111] text-white border border-[#bf953f] rounded px-1 py-1 text-xs w-14">${buatOpsiMaksimalKasir(1000)}</select></td>
-                    <td class="py-2 text-center"><select id="invTambah_${idx}" onchange="hitungOtomatisInvoice()" class="bg-[#111] text-white border border-[#bf953f] rounded px-1 py-1 text-xs w-14">${buatOpsiMaksimalKasir(1000)}</select></td>
-                    <td class="py-2 text-right"><input type="text" id="invTotalHarga_${idx}" readonly class="bg-transparent text-right font-bold text-[#ffb74d] w-full outline-none" value="Rp 0"></td>
-                </tr>`;
-            });
-            document.getElementById('productRowsInvoice').innerHTML = html;
-        }
-
-        // HITUNGAN MATEMATIKA INVOICE
-        function hitungOtomatisInvoice() {
-            let subTotal = 0;
-            let totalCup = 0;
-            
-            daftarProdukInvoice.forEach((p, idx) => {
-                let qty = parseInt(document.getElementById(`invQty_${idx}`).value) || 0;
-                let tambah = parseInt(document.getElementById(`invTambah_${idx}`).value) || 0;
-                
-                let totQty = qty + tambah;
-                let totalHarga = totQty * p.harga;
-                
-                document.getElementById(`invTotalHarga_${idx}`).value = formatRupiahGlobal(totalHarga);
-                
-                subTotal += totalHarga;
-                totalCup += totQty;
-            });
-
-            let diskon = parseInt(document.getElementById('diskonInvoice').value) || 0;
-            let biayaKirim = parseInt(document.getElementById('biayaKirimInvoice').value) || 0;
-            let dp = parseInt(document.getElementById('dpInvoice').value) || 0;
-            
-            let total = subTotal + biayaKirim - diskon;
-            let sisaTagihan = total - dp;
-
-            // UPDATE UI TEKS
-            document.getElementById('totPesananCupText').innerText = totalCup + " Cup";
-            document.getElementById('subTotalText').innerText = formatRupiahGlobal(subTotal);
-            document.getElementById('diskonText').innerText = formatRupiahGlobal(diskon);
-            document.getElementById('biayaKirimText').innerText = biayaKirim === 0 ? "Rp -" : formatRupiahGlobal(biayaKirim);
-            document.getElementById('grandTotalText').innerText = formatRupiahGlobal(total);
-            document.getElementById('dpText').innerText = formatRupiahGlobal(dp);
-            
-            let statusLunas = sisaTagihan <= 0 ? "(Lunas)" : "(Belum Lunas)";
-            document.getElementById('sisaTagihanText').innerText = formatRupiahGlobal(sisaTagihan) + " " + statusLunas;
-        }
-
-        // POPUP KONFIRMASI SIMPAN
-        function bukaPopupKonfirmasiSimpanInvoice() {
-            document.getElementById('popInvCup').innerText = document.getElementById('totPesananCupText').innerText;
-            document.getElementById('popInvSubTotal').innerText = document.getElementById('subTotalText').innerText;
-            document.getElementById('popInvDiskon').innerText = document.getElementById('diskonText').innerText;
-            document.getElementById('popInvKirim').innerText = document.getElementById('biayaKirimText').innerText;
-            document.getElementById('popInvTotal').innerText = document.getElementById('grandTotalText').innerText;
-            document.getElementById('popInvDp').innerText = document.getElementById('dpText').innerText;
-            document.getElementById('popInvSisa').innerText = document.getElementById('sisaTagihanText').innerText;
-
-            document.getElementById('popupSimpanInvoice').classList.replace('hidden', 'flex');
-        }
-
-        // LANJUT KE STRUK PDF & SIMPAN DB
-        function lanjutKeStrukInvoice() {
-            document.getElementById('popupSimpanInvoice').classList.replace('flex', 'hidden');
-        function lanjutKeStrukInvoice() {
-            // Sembunyikan popup konfirmasi
-            document.getElementById('popupSimpanInvoice').classList.replace('flex', 'hidden');
-    
-            // Tampilkan tampilan PDF (hapus 'hidden' dari section PDF, lalu pastikan view-invoice di-hide)
-            document.getElementById('view-invoice').classList.add('hidden');
-            document.getElementById('view-invoice-receipt').classList.remove('hidden');
-
-            // Ambil elemen PDF dan Nomor Invoice
-            let element = document.getElementById('invoicePDFContainer');
-            let noInvoice = document.getElementById('pdfNoInvoice').innerText || "INV";
-
-            // Konfigurasi html2pdf (Sangat penting: useCORS: true untuk membaca gambar proxy)
-            let opt = {
-            margin:       0,
-            filename:     `Invoice_${noInvoice}_SIFOURAM.pdf`,
-            image:        { type: 'jpeg', quality: 0.98 },
-            html2canvas:  { scale: 2, useCORS: true, allowTaint: true },
-            jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
-        };
-
-            // Jalankan render lalu Download PDF Otomatis!
-            html2pdf().set(opt).from(element).save();
-        }    
-        
-            // 1. Simpan ke GS Database
-            let dataSimpan = {
-                action: 'saveInvoice',
-                kategori: document.getElementById('driverInvoice').value,
-                pic: document.getElementById('picPenerimaInvoice').value,
-                tanggal: document.getElementById('tanggalInvoice').value,
-                nama: document.getElementById('namaCustomerInv').value,
-                wa: document.getElementById('waCustomerInv').value,
-                no_invoice: document.getElementById('noInvoiceAuto').value,
-                total_cup: document.getElementById('totPesananCupText').innerText,
-                sub_total: document.getElementById('subTotalText').innerText,
-                diskon: document.getElementById('diskonText').innerText,
-                biaya_kirim: document.getElementById('biayaKirimText').innerText,
-                total: document.getElementById('grandTotalText').innerText,
-                dp: document.getElementById('dpText').innerText,
-                sisa_tagihan: document.getElementById('sisaTagihanText').innerText
-            };
-            
-            fetch(URL_API, {
-                method: 'POST', mode: 'no-cors',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify(dataSimpan)
-            });
-
-            // 2. Render PDF HTML
-            document.getElementById('pdfNamaCustomer').innerText = document.getElementById('namaCustomerInv').value;
-            document.getElementById('pdfNoTelp').innerText = document.getElementById('waCustomerInv').value;
-            document.getElementById('pdfNoInvoice').innerText = document.getElementById('noInvoiceAuto').value;
-            document.getElementById('pdfTanggal').innerText = formatTanggalInvoice();
-            
-            let tbody = "";
-            daftarProdukInvoice.forEach((p, idx) => {
-                let qty = parseInt(document.getElementById(`invQty_${idx}`).value) || 0;
-                let tambah = parseInt(document.getElementById(`invTambah_${idx}`).value) || 0;
-                let tot = qty + tambah;
-                if(tot > 0) {
-                    tbody += `<tr style="border-bottom: 1px solid #444;">
-                        <td style="padding: 10px 5px; text-align: center; border-left: 1px solid #bf953f;">${idx+1}</td>
-                        <td style="padding: 10px 5px;">${p.nama}</td>
-                        <td style="padding: 10px 5px; text-align: center;">${tot}</td>
-                        <td style="padding: 10px 5px; text-align: right;">${formatRupiahGlobal(p.harga)}</td>
-                        <td style="padding: 10px 5px; text-align: right; border-right: 1px solid #bf953f;">${document.getElementById(`invTotalHarga_${idx}`).value}</td>
-                    </tr>`;
-                }
-            });
-            document.getElementById('pdfTableBody').innerHTML = tbody;
-
-            document.getElementById('pdfSubTotal').innerText = document.getElementById('subTotalText').innerText;
-            document.getElementById('pdfDiskon').innerText = document.getElementById('diskonText').innerText;
-            document.getElementById('pdfBiayaKirim').innerText = document.getElementById('biayaKirimText').innerText;
-            document.getElementById('pdfTotal').innerText = document.getElementById('grandTotalText').innerText;
-            document.getElementById('pdfDp').innerText = document.getElementById('dpText').innerText;
-            
-            let sisaTeks = document.getElementById('sisaTagihanText').innerText;
-            document.getElementById('pdfSisaTagihan').innerText = sisaTeks.split(" ")[0] + " " + sisaTeks.split(" ")[1]; // Ambil Rp XXXXX saja
-            
-            let statSpan = document.getElementById('pdfStatusLunas');
-            if(sisaTeks.includes("Belum")) {
-                statSpan.innerText = "BELUM LUNAS";
-                statSpan.style.borderColor = "#FF0000"; statSpan.style.color = "#FF0000";
-            } else {
-                statSpan.innerText = "LUNAS";
-                statSpan.style.borderColor = "#4ade80"; statSpan.style.color = "#4ade80";
-            }
-
-            // Tampilkan Pagenya
-            document.getElementById('view-invoice').classList.add('hidden');
-            document.getElementById('view-invoice-receipt').classList.remove('hidden');
-        }
-
-        // KIRIM WA & DOWNLOAD PDF
-            function kirimWhatsAppInvoice() {
-                let noWA = document.getElementById('waCustomerInv').value.trim();
-                let noInvoice = document.getElementById('pdfNoInvoice').innerText || document.getElementById('noInvoiceAuto').value || "-";
-    
-        // Format nomor WhatsApp (Ubah angka 0 di depan menjadi 62)
-                if (noWA.startsWith('0')) {
-                noWA = '62' + noWA.substring(1);
-            }
-
-        // Teks pesan sesuai permintaan
-            let pesan = `Berikut kami lampirkan File Invoice Pesanan Kopi SI FOUR A.M dengan Nomor *${noInvoice}* (Silahkan attach file PDF yang baru saja terdownload).\n\nMohon dapat ditinjau terlebih dahulu. Jika ada pertanyaan atau penyesuaian terkait rincian INVOICE, silakan hubungi kami kembali.\n\nTerima kasih atas perhatian dan kerja samanya.\nSalam hangat,\n *SI FOUR A.M KOPI*`;
-    
-        // Buka tautan WhatsApp di tab baru
-            let waLink = `https://wa.me/${noWA}?text=${encodeURIComponent(pesan)}`;
-            window.open(waLink, '_blank');
-        }
-        // Fungsi baru untuk menghapus foto secara individual apabila pengguna tidak sengaja mengupload gambar yang salah
-        function hapusFotoStock(index) {
-            stockImagesBase64.splice(index, 1);
-            renderPreviewStock();
-        }
-    
     </script>
 </body>
 </html>
